@@ -2,6 +2,7 @@
   "name": "imd-exhibit-2019",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://crispipear.github.io/imd-exhibit-2019/",
   "dependencies": {
     "contentful": "^7.0.5",
     "react": "^16.6.3",
