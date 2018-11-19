@@ -1,0 +1,12 @@
+.student-card{
+  box-sizing: border-box;
+  padding: 1% 2.5%;
+  background-color: #f1f1f1;
+  height: 33vh;
+  width: 33vh;
+  margin-bottom: 2.5%
+}
+.student-card h1{
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
