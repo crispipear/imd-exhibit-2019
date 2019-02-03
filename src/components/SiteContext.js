@@ -1,30 +1,47 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import {fetchData} from '../utils/fetchData';
 
 const SiteContext = React.createContext({
   students: undefined,
   projects: undefined,
-  updateData: () => null
+  siteContent: undefined
 })
 
 export const SiteConsumer = SiteContext.Consumer
 
 export class SiteProvider extends Component {
-  state = {
-    students: undefined,
-    projects: undefined
+  componentDidMount(){
+    this._fetchData();
   }
 
-  updateData = (type, data) =>{
-      this.setState({
-        [type]: data.sort(this._compare)
-      })
+  state = {
+    students: undefined,
+    projects: undefined,
+    siteContent: undefined
+  }
+
+  _fetchData = async () => {
+    const siteContentdata = await fetchData('siteContent');
+    this._processSiteContent(siteContentdata);
+    const studentsData = await fetchData('students');
+    this.setState({
+      students: studentsData.sort(this._compare),
+    })
+  }
+
+  _processSiteContent = data => {
+    let siteContent = {}
+    data.map(obj => {
+      siteContent[obj.name] = obj.content
+    })
+    this.setState({
+      siteContent
+    })
   }
 
   _compare = (a, b) => {
-    let nameA = a.name.split(" ")
-    let nameB = b.name.split(" ")
-    let aLastName = nameA[nameA.length - 1]
-    let bLastName = nameB[nameB.length - 2]
+    let aLastName = a.lastName
+    let bLastName = b.lastName
 
     if(aLastName < bLastName) return -1
     if(aLastName > bLastName) return 1
@@ -38,7 +55,7 @@ export class SiteProvider extends Component {
         value={{
           students: this.state.students,
           projects: this.state.projects,
-          updateData: this.updateData
+          siteContent: this.state.siteContent
         }}
       >
         {this.props.children}

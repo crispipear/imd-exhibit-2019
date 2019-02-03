@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import {SiteConsumer} from './SiteContext'
-import {fetchData} from '../utils/fetchData'
 import StudentCard from './StudentCard'
+import '../styles/students.scss';
 
 class Students extends Component {
-
-  componentDidMount(){
-    this.fetchStudentsData()
-  }
-
-  fetchStudentsData = async () => {
-    const data = await fetchData('students')
-    this.props.updateData('students', data)
-  }
-
   render() {
     return (
         <div className="students">
@@ -29,8 +19,8 @@ class Students extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({students, updateData}) => (
-      <Students data={students} updateData={updateData}/>
+    {({students}) => (
+      <Students data={students}/>
     )}
   </SiteConsumer>
 )

@@ -1,0 +1,42 @@
+.landing{
+    width: 100%;
+    padding: 7.5%;
+    box-sizing: border-box;
+    h1{
+        color: #444444;
+        line-height: 7.5rem;
+        font-size: 5.5rem;
+    }
+}
+
+.about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 7.5%;
+    .left{
+        width: 55%;
+    }
+    .right{
+        width: 25%;
+    }
+    h1{
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #777777;
+        line-height: 2.5rem;
+    }
+    p{
+        margin: 0% 0% 5% 0%;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
+    h2{
+        margin: 2.5% 0%;
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: #2d2d2d;
+    }
+}
