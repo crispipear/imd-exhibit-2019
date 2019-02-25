@@ -1,3 +1,5 @@
+@import "_mixin.scss";
+
 .menu{
     position: fixed;
     width: 100%;
@@ -12,9 +14,6 @@
             opacity: 0.5;
         }
     }
-    .left{
-        width: 25%;
-    }
     .right{
         display: flex;
         width: 25%;
@@ -22,4 +21,9 @@
     }
     box-sizing: border-box;
     padding: 5% 7.5%;
+    @include desktop{
+      .right{
+        width: 20%;
+      }
+    }
 }

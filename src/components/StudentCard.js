@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
-const StudentCard = ({name}) => (
-  <div className='student-card'>
-    <h1>{name}</h1>
-  </div>
-)
+export default class StudentCard extends Component {
 
-export default StudentCard
+
+  render() {
+    return (
+      <div className='student-card'>
+        <h1>{this.props.name}</h1>
+      </div>
+    );
+  }
+}

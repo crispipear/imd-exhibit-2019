@@ -9,13 +9,13 @@ class Landing extends Component {
       this.props.siteContent ?
           <div className='landing'>
             <div className='scroll'>
-              {/* <div/> */}
-              {/* <span>scroll</span> */}
+               <span>Scroll</span>
+               <div/>
             </div>
             <h1>
                 {this.props.siteContent && this.props.siteContent.tagline}
             </h1>
-          </div>        
+          </div>
         :
         <div className='landing'/>
 

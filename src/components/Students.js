@@ -4,6 +4,7 @@ import StudentCard from './StudentCard'
 import '../styles/students.scss';
 
 class Students extends Component {
+
   render() {
     return (
         <div className="students">
