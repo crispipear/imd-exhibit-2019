@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/imd-exhibit-2019/static/js/runtime~main.4f46e2f2.js"
   },
   {
-    "revision": "f809eff062bcd0a43624",
-    "url": "/imd-exhibit-2019/static/js/main.f809eff0.chunk.js"
+    "revision": "1f5874cd5519d042086e",
+    "url": "/imd-exhibit-2019/static/js/main.1f5874cd.chunk.js"
   },
   {
     "revision": "65147ba0d11160a8bae1",
     "url": "/imd-exhibit-2019/static/js/1.65147ba0.chunk.js"
   },
   {
-    "revision": "f809eff062bcd0a43624",
-    "url": "/imd-exhibit-2019/static/css/main.d37cf678.chunk.css"
+    "revision": "1f5874cd5519d042086e",
+    "url": "/imd-exhibit-2019/static/css/main.79ab3df0.chunk.css"
   },
   {
-    "revision": "1cbb4aac827c989b91029716f16ac95b",
+    "revision": "d5c8266df2c2dab3109c4c1535380c83",
     "url": "/imd-exhibit-2019/index.html"
   }
 ];
