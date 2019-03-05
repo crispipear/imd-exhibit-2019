@@ -15,7 +15,7 @@ export default class Menu extends Component {
             <span onClick={() => this._scroll('.app')}>IMD c/o 2019</span>
         </div>
         <div className='right'>
-            <span>Capstones</span>
+            <span onClick={() => this._scroll('.capstones')}>Capstones</span>
             <span onClick={() => this._scroll('.students')}>Students</span>
             <span onClick={() => this._scroll('.about')}>About</span>
         </div>

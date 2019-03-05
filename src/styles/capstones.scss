@@ -1,0 +1,49 @@
+.capstones{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 7.5%;
+}
+
+.capstone-card{
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 5%;
+  cursor: pointer;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .capstone-image{
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.2s;
+    filter: grayscale(100%);
+    opacity: 0.75;
+  }
+  &:hover .capstone-image{
+    filter: none;
+  }
+  h1{
+    position: absolute;
+    right: -10%;
+    bottom: 25%;
+    font-size: 3.5rem;
+  }
+  &:nth-child(odd){
+    margin-right: 7.5%;
+  }
+  &:nth-child(even){
+    margin-left: 7.5%;
+    margin-top: 7.5%;
+    h1{
+      left: -10%!important;
+    }
+  }
+}

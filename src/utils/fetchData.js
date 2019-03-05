@@ -17,3 +17,16 @@ export const fetchData = type => {
       return result
     })
 }
+
+export const fetchAssets = () => {
+  return client.getAssets()
+      .then(entries => {
+          let result = []
+          entries.items.forEach(entry => {
+          if(entry.fields) {
+              result.push(entry.fields)
+          }
+          })
+          return result
+      })
+}

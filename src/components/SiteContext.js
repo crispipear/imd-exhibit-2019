@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {fetchData} from '../utils/fetchData';
+import {fetchData, fetchAssets} from '../utils/fetchData';
 
 const SiteContext = React.createContext({
   students: undefined,
   projects: undefined,
-  siteContent: undefined
+  siteContent: undefined,
+  assets: undefined
 })
 
 export const SiteConsumer = SiteContext.Consumer
@@ -15,27 +16,42 @@ export class SiteProvider extends Component {
   }
 
   state = {
-    students: undefined,
-    projects: undefined,
-    siteContent: undefined
+    students: [],
+    projects: [],
+    siteContent: {},
+    assets: {}
   }
 
   _fetchData = async () => {
     const siteContentdata = await fetchData('siteContent');
-    this._processSiteContent(siteContentdata);
+    this._processContent(siteContentdata);
+    const siteAssetsData = await fetchAssets();
+    this._processAssets(siteAssetsData);
     const studentsData = await fetchData('students');
+    const projectsData = await fetchData('projects');
     this.setState({
       students: studentsData.sort(this._compare),
+      projects: projectsData
     })
   }
 
-  _processSiteContent = data => {
-    let siteContent = {}
+  _processAssets = data => {
+    let assets = {}
     data.map(obj => {
-      siteContent[obj.name] = obj.content
+      assets[obj.title] = `https://${obj.file.url}`
     })
     this.setState({
-      siteContent
+      assets
+    })
+  }
+
+  _processContent = data => {
+    let content = {}
+    data.map(obj => {
+      content[obj.name] = obj.content
+    })
+    this.setState({
+      siteContent: content
     })
   }
 
@@ -55,7 +71,8 @@ export class SiteProvider extends Component {
         value={{
           students: this.state.students,
           projects: this.state.projects,
-          siteContent: this.state.siteContent
+          siteContent: this.state.siteContent,
+          assets: this.state.assets
         }}
       >
         {this.props.children}

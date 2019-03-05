@@ -6,6 +6,7 @@ import Students from './components/Students';
 import About from './components/About';
 import Landing from './components/Landing';
 import Menu from './components/Menu';
+import Capstones from './components/Capstones';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
           <Menu/>
           <Landing/>
           <About/>
+          <Capstones/>
           <Students/>
         </div>
       </SiteProvider>
