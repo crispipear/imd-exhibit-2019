@@ -1,0 +1,67 @@
+@import "_mixin.scss";
+
+.footer{
+  width: 100%;
+  min-height: 80vh;
+  position: relative;
+  background-color: $text;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5% 7.5% 0% 7.5%;
+  box-sizing: border-box;
+  h1, h3{
+    margin: 0%;
+  }
+  h1{
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: white;
+  }
+  h3{
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-bottom: 1.5%;
+    color:rgba(white, 0.75);
+    span{
+      color:rgba(white, 0.35);
+    }
+  }
+  .footer-block{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .left{
+      width: 20%;
+      height: 100%;
+    }
+    .right{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 60%;
+      height: 100%;
+    }
+    width: 100%;
+    height: 15vh;
+  }
+  .footer-footer{
+    display: flex;
+    flex-direction: row;
+    h3,a{
+      color: rgba(white, 0.6);
+      font-size: 0.8rem;
+      margin-right: 1%;
+    }
+    a{
+      transition: opacity 0.2s;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    width: 100%;
+    position: absolute;
+    left: 7.5%;
+    bottom: 5%;
+  }
+}

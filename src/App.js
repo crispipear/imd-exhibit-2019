@@ -7,6 +7,7 @@ import About from './components/About';
 import Landing from './components/Landing';
 import Menu from './components/Menu';
 import Capstones from './components/Capstones';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <About/>
           <Capstones/>
           <Students/>
+          <Footer/>
         </div>
       </SiteProvider>
     );

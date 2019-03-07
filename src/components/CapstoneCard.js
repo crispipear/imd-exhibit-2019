@@ -4,12 +4,14 @@ export default class StudentCard extends Component {
   state = {
     width: 0,
     height: 0,
-    url: ''
+    url: '',
+    teamMembers: []
   }
   componentDidMount(){
     let image = this.props.capstone.featuredImage.fields.file
     let width,height = 0
     let url = 'https://' + image.url
+    let teamMembers = this.props.capstone.teamMembers.split(",")
     if(image.details.image.width > image.details.image.height){
       width = '35.65vw'
       height = '25vw'
@@ -20,7 +22,8 @@ export default class StudentCard extends Component {
     this.setState({
       width,
       height,
-      url
+      url,
+      teamMembers
     })
   }
 
@@ -30,7 +33,9 @@ export default class StudentCard extends Component {
         <div className='capstone-image'
           style={{backgroundImage: `url(${this.state.url})`}}/>
         <h1>{this.props.capstone.name}</h1>
-        {/* <p>{this.props.capstone.teamMembers}</p> */}
+        <p>{
+          this.state.teamMembers.map((m, key) => <span>{m}{key!=this.state.teamMembers.length-1 && " / "}</span>)
+        }</p>
       </div>
     );
   }
