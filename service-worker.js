@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/imd-exhibit-2019/precache-manifest.b1aa406feca7f46afb0d6e25f6d52d93.js"
+  "/imd-exhibit-2019/precache-manifest.43d181e1451c098e68daef8c77124f71.js"
 );
 
 workbox.clientsClaim();
