@@ -5,7 +5,11 @@ const SiteContext = React.createContext({
   students: undefined,
   projects: undefined,
   siteContent: undefined,
-  assets: undefined
+  assets: undefined,
+  showStudentInfo: undefined,
+  curStudent: undefined,
+  studentInfo: undefined,
+  closeStudentInfo: undefined
 })
 
 export const SiteConsumer = SiteContext.Consumer
@@ -19,7 +23,22 @@ export class SiteProvider extends Component {
     students: [],
     projects: [],
     siteContent: {},
-    assets: {}
+    assets: {},
+    curStudent: "",
+    studentInfo: false
+  }
+
+  showStudentInfo = name => {
+    this.setState({
+      curStudent: name,
+      studentInfo: true
+    })
+  }
+
+  closeStudentInfo = () => {
+    this.setState({
+      studentInfo: false
+    })
   }
 
   _fetchData = async () => {
@@ -72,7 +91,11 @@ export class SiteProvider extends Component {
           students: this.state.students,
           projects: this.state.projects,
           siteContent: this.state.siteContent,
-          assets: this.state.assets
+          assets: this.state.assets,
+          showStudentInfo: this.showStudentInfo,
+          closeStudentInfo: this.closeStudentInfo,
+          curStudent: this.state.curStudent,
+          studentInfo: this.state.studentInfo
         }}
       >
         {this.props.children}

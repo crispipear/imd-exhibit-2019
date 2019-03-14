@@ -1,0 +1,85 @@
+@import "_mixin.scss";
+
+.student-info-container{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 50;
+  transition: all 0.35s ease-out;
+  .student-info{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
+    transition: all 0.35s ease-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .student-info-portrait{
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+    }
+    .left, .right{
+      width: 47.5%;
+    }
+    .left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5%;
+      div{
+        margin-bottom: 7.5%;
+      }
+      h3, h4 {
+        margin: 0%;
+      }
+      h3{
+        font-size: 0.95rem;
+        margin-bottom: 2.5%;
+      }
+      h4{
+        font-size: 0.85rem;
+        font-weight: 300;
+        margin-bottom: 7.5%;
+      }
+    }
+    .right{
+      padding: 5%;
+      margin-top: 15%;
+      h1{
+        font-size: 1.5rem;
+      }
+      p{
+        font-size: 0.85rem;
+        line-height: 1.35rem;
+      }
+      p.focus{
+        color: rgba($text, 0.5);
+        font-weight: 400;
+      }
+      .links{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        a{
+          font-size: 0.85rem;
+          display: inline-block;
+          text-decoration: underline;
+          color: $text;
+          transition: all 0.25s;
+          margin: 1.5% 0%;
+          &:hover{
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}

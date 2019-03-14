@@ -15,19 +15,19 @@ const members = [
     name: 'Benjamin Siev'
   },
   {
-    name: 'Andrea Brado'
+    name: 'Kyle Rhodes'
   },
   {
-    name: 'Kevin Laird'
+    name: 'Hannah Tashiro'
   },
   {
     name: "Julian Ngo"
   },
   {
-    name: 'Kyle Rhodes'
+    name: 'Andrea Brado'
   },
   {
-    name: 'Hannah Tashiro'
+    name: 'Kevin Laird'
   }
 ]
 
@@ -54,7 +54,7 @@ class About extends Component {
           </div>
           <div className='footer-block'>
             <div className='left'>
-              <h1>Thanks to <br/>faculty members <br/>(2017 - 2019)</h1>
+              <h1>Thanks to <br/>our faculty <br/>(2017 - 2019)</h1>
             </div>
             <div className='right'>
               {
