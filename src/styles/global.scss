@@ -1,3 +1,5 @@
+@import "_mixin.scss";
+
 *{
     font-family: 'Helvetica', 'Roboto', 'Arial', sans-serif
 }
@@ -12,4 +14,14 @@ body{
     width: 100%;
     overflow: hidden;
     min-height: 100vh;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: underline;
+    color: $text;
+    transition: all 0.25s;
+    &:hover{
+      opacity: 0.5;
+    }
 }

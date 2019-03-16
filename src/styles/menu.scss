@@ -29,10 +29,17 @@
         width: 20%;
       }
     }
-    &:hover{
-      -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
-      -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
-      box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
-      background-color: white;
-    }
+}
+
+.menu-hidden{
+  opacity: 0;
+}
+.menu-appear{
+  background-color: white;
+  opacity: 1;
+}
+.menu-shadow{
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.05);
 }

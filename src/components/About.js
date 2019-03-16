@@ -17,7 +17,9 @@ class About extends Component {
             <div className='right'>
               <h1>capstone exhibition</h1>
                 <h2>Location</h2>
-                <p>{this.props.siteContent.exhibit_location}</p>
+                <p><a href="https://www.uwb.edu/arc" target="_blank" rel="noopener noreferrer" >
+                  {this.props.siteContent.exhibit_location}</a>
+                </p>
                 <h2>Date</h2>
                 <p>{this.props.siteContent.exhibit_date}</p>
                 <h2>Time</h2>

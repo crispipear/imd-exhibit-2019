@@ -9,7 +9,7 @@
   .student-info{
     position: absolute;
     top: 0;
-    width: 50%;
+    width: 60%;
     height: 100vh;
     background-color: white;
     -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
@@ -19,40 +19,72 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    .student-info-portrait{
-      width: 100%;
-      padding-top: 100%;
-      position: relative;
-      background-position: center;
-      background-size: cover;
-    }
     .left, .right{
-      width: 47.5%;
+      width: 50%;
     }
     .left{
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       padding: 5%;
-      div{
+      .student-info-portrait{
         margin-bottom: 7.5%;
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        .portrait, .overlay1, .overlay2{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .overlay1, .overlay2{
+          transition: all 0.2s;
+          z-index: 1;
+          content: '',
+        }
+        .overlay1{
+          mix-blend-mode: screen;
+        }
+        .overlay2{
+          mix-blend-mode: multiply;
+        }
+        .portrait{
+          background-position: center;
+          background-size: cover;
+          z-index: 0;
+        }
+      }
+      .student-info-fav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5%;
       }
       h3, h4 {
         margin: 0%;
-      }
-      h3{
-        font-size: 0.95rem;
-        margin-bottom: 2.5%;
+        text-align: left;
+        font-size: 0.85rem;
+        flex: 1;
+        line-height: 1.25rem;
       }
       h4{
-        font-size: 0.85rem;
         font-weight: 300;
-        margin-bottom: 7.5%;
+        div{
+          width: 10px;
+          height: 10px;
+          display: inline-block;
+          margin-left: 5px;
+        }
       }
     }
     .right{
-      padding: 5%;
+      padding: 3.5%;
       margin-top: 15%;
+      overflow-y: scroll;
+      ::-webkit-scrollbar { 
+        display: none; 
+      }
       h1{
         font-size: 1.5rem;
       }
@@ -71,13 +103,7 @@
         a{
           font-size: 0.85rem;
           display: inline-block;
-          text-decoration: underline;
-          color: $text;
-          transition: all 0.25s;
           margin: 1.5% 0%;
-          &:hover{
-            opacity: 0.5;
-          }
         }
       }
     }
