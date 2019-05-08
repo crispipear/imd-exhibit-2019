@@ -1,53 +1,61 @@
-@import "_mixin.scss";
+@import "_mixins.scss";
 
 .footer{
   width: 100%;
-  min-height: 80vh;
   position: relative;
   background-color: $text;
   display: flex;
   flex-direction: column;
-  padding: 2.5% 7.5% 0% 7.5%;
+  padding: 5% 7.5% 0% 7.5%;
   box-sizing: border-box;
-  h1, h3{
+  h1, h2, h3{
     margin: 0%;
   }
   h1{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    color: white;
+    margin-bottom: 2.5%;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+  }
+  h2{
+    font-size: 1rem;
     line-height: 2.25rem;
     color: white;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 2.5%;
+    @include mobile{
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
   }
   h3{
     font-weight: 300;
-    font-size: 0.9rem;
-    margin-bottom: 1.5%;
-    color:rgba(white, 0.75);
-    span{
-      color:rgba(white, 0.35);
+    font-size: 0.8rem;
+    margin-bottom: 2.5%;
+    color:rgba(white, 0.6);
+    @include mobile{
+      font-size: 0.8rem;
+    }
+  }
+  .footer-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2.5%;
+    @include mobile{
+      grid-template-columns: 1fr 1fr;
     }
   }
   .footer-block{
-    margin-top: 5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .left{
-      width: 20%;
-      height: 100%;
-    }
-    .right{
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 60%;
-      height: 100%;
-    }
-    width: 100%;
-    height: 15vh;
+    margin-bottom: 7.5%;
   }
   .footer-footer{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    margin: 5% 0% 2.5% 0%;
     h3,a{
       color: rgba(white, 0.6);
       font-size: 0.8rem;
@@ -59,9 +67,5 @@
         opacity: 0.5;
       }
     }
-    width: 100%;
-    position: absolute;
-    left: 7.5%;
-    bottom: 5%;
   }
 }

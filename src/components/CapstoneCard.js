@@ -34,7 +34,7 @@ export default class StudentCard extends Component {
           style={{backgroundImage: `url(${this.state.url})`}}/>
         <h1>{this.props.capstone.name}</h1>
         <p>{
-          this.state.teamMembers.map((m, key) => <span>{m}{key!=this.state.teamMembers.length-1 && " / "}</span>)
+          this.state.teamMembers.map((m, key) => <span key={key}>{m}{key!=this.state.teamMembers.length-1 && " / "}</span>)
         }</p>
       </div>
     );

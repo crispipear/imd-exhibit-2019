@@ -15,8 +15,19 @@ const SiteContext = React.createContext({
 export const SiteConsumer = SiteContext.Consumer
 
 export class SiteProvider extends Component {
-  componentDidMount(){
-    this._fetchData();
+  updateDimensions = () => {
+      this.setState({browser: {width: window.innerWidth, height: window.innerHeight}});
+  }
+  componentWillMount() {
+      this.updateDimensions();
+  }
+  componentDidMount() {
+      window.addEventListener("resize", this.updateDimensions);
+      this._fetchData();
+      this.updateDimensions();
+  }
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateDimensions);
   }
 
   state = {
@@ -25,7 +36,8 @@ export class SiteProvider extends Component {
     siteContent: {},
     assets: {},
     curStudent: "",
-    studentInfo: false
+    studentInfo: false,
+    browser: {width: 0, height: 0}
   }
 
   showStudentInfo = name => {
@@ -95,7 +107,8 @@ export class SiteProvider extends Component {
           showStudentInfo: this.showStudentInfo,
           closeStudentInfo: this.closeStudentInfo,
           curStudent: this.state.curStudent,
-          studentInfo: this.state.studentInfo
+          studentInfo: this.state.studentInfo,
+          browser: this.state.browser
         }}
       >
         {this.props.children}

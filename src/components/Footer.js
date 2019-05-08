@@ -2,67 +2,36 @@ import React, { Component } from 'react';
 import {SiteConsumer} from './SiteContext';
 import '../styles/footer.scss';
 
-const members = [
-  {
-    name: 'Su Li',
-    role: 'Lead Developer'
-  },
-  {
-    name: 'Yin Yin',
-    role: 'Lead Designer'
-  },
-  {
-    name: 'Benjamin Siev'
-  },
-  {
-    name: 'Kyle Rhodes'
-  },
-  {
-    name: 'Hannah Tashiro'
-  },
-  {
-    name: "Julian Ngo"
-  },
-  {
-    name: 'Andrea Brado'
-  },
-  {
-    name: 'Kevin Laird'
-  }
-]
 
-const faculty = ['David Socha', 'Carrie Bodle', 'Abraham Avnisan', 
-                'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
-                'Sara McDermott', 'Keiko Miyamoto'
-               ]
-
+const exhibit = {
+  website: ['Su Li', 'Yin Yin', 'Benjamin Siev', 'Hannah Tashiro', 'Kyle Rhodes', 'Andrea Brado'],
+  committee: ['Rena Chen', 'Stephen Epperson', 'Nicole Lee', 'Jacob Luna', 'Sergio Mejia', 'Jeff Oh',
+   'Jimmy Seifert', 'Benjamin Siev', 'Hannah Tashiro', 'Junior Tran-Thien'],
+   faculty: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan', 
+   'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
+   'Sara McDermott', 'Keiko Miyamoto'],
+  marketing: ['Hannah Ferry', 'Maxton McGuire', 'Rachel Raymond', 'Cynthia Thais'],
+  catering: ['Hannah Ferry', 'Sara McDermott', 'Rachel Raymond'],
+  photography: ['Kyle Olason'],
+}
 class About extends Component {
   render() {
     return (
         <div className='footer'>
-          <div className='footer-block'>
-            <div className='left'>
-              <h1>Website made possible by</h1>
-            </div>
-            <div className='right'>
-              {
-                members.map((m, key) => 
-                  <h3 key={key}>{m.name}<span>{m.role && ' - ' + m.role}</span></h3>
-                )
-              }
-            </div>
-          </div>
-          <div className='footer-block'>
-            <div className='left'>
-              <h1>Thanks to <br/>our faculty <br/>(2017 - 2019)</h1>
-            </div>
-            <div className='right'>
-              {
-                faculty.map((name, key) => 
-                  <h3 key={key}>{name}</h3>
-                )
-              }
-            </div>
+          <h1>Credits</h1>
+          <div className='footer-content'>
+            {
+              Object.keys(exhibit).map((role, key) => 
+                <div key={key} className='footer-block'>
+                  <h2>{role == 'faculty' ? 'faculty (2017-2019)': role}</h2>
+                  {
+                    exhibit[role].map((name, key) => 
+                      <h3 key={key}>{name}</h3>
+                    )
+                  }
+                </div>
+              )
+            }
           </div>
           <div className='footer-footer'>
               <h3>University of Washington</h3>
