@@ -7,15 +7,19 @@ class Capstones extends Component {
 
   render() {
     return (
-        <div className="capstones">
-          {this.props.data&&
-            this.props.data.map((capstone, key) => (
-              <CapstoneCard 
-                  capstone={capstone}
-                  key={key}
-                />
-            ))
-          }
+        <div className="capstones container">
+          <span className="capstones-title">Capstone Projects</span>
+          <div className="capstones-line"/>
+          <div className="capstones-cards-container">
+            {this.props.data&&
+              this.props.data.map((capstone, key) => (
+                <CapstoneCard 
+                    capstone={capstone}
+                    key={key}
+                  />
+              ))
+            }
+          </div>
         </div>
     );
   }

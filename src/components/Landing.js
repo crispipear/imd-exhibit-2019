@@ -7,7 +7,7 @@ class Landing extends Component {
   render() {
     return (
       this.props.siteContent ?
-          <div className='landing'>
+          <div className='landing container'>
             <div className='scroll'>
                <span>Scroll</span>
                <div/>

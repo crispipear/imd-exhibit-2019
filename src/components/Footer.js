@@ -18,12 +18,13 @@ class About extends Component {
   render() {
     return (
         <div className='footer'>
+        <div className='container'>
           <h1>Credits</h1>
           <div className='footer-content'>
             {
               Object.keys(exhibit).map((role, key) => 
                 <div key={key} className='footer-block'>
-                  <h2>{role == 'faculty' ? 'faculty (2017-2019)': role}</h2>
+                  <h2>{role == 'faculty' ? 'faculty (c/o 2019)' : role == 'committee' ? 'exhibit committee': role}</h2>
                   {
                     exhibit[role].map((name, key) => 
                       <h3 key={key}>{name}</h3>
@@ -38,6 +39,7 @@ class About extends Component {
               <a href="https://www.uwb.edu/media-design" target="_blank">Interactive Media Design</a>
               <h3>2019</h3>
           </div>
+        </div>
         </div>
     );
   }

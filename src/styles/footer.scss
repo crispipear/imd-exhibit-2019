@@ -6,7 +6,8 @@
   background-color: $text;
   display: flex;
   flex-direction: column;
-  padding: 5% 7.5% 0% 7.5%;
+  align-items: center;
+  padding: 5% 0%;
   box-sizing: border-box;
   h1, h2, h3{
     margin: 0%;
@@ -20,22 +21,31 @@
     letter-spacing: 0.15rem;
   }
   h2{
-    font-size: 1rem;
-    line-height: 2.25rem;
+    font-size: 1.15rem;
+    line-height: 2.5rem;
     color: white;
     font-weight: 400;
     text-transform: capitalize;
     margin-bottom: 2.5%;
+    @include laptop{
+      font-size: 1rem;
+      line-height: 2.25rem;
+    }
     @include mobile{
       font-size: 0.9rem;
       line-height: 1.5rem;
     }
   }
   h3{
+    font-size: 0.9rem;
+    line-height: 1.25rem;
     font-weight: 300;
-    font-size: 0.8rem;
     margin-bottom: 2.5%;
     color:rgba(white, 0.6);
+    @include laptop{
+      font-size: 0.8rem;
+      line-height: 1rem;
+    }
     @include mobile{
       font-size: 0.8rem;
     }
@@ -54,12 +64,13 @@
   .footer-footer{
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
-    margin: 5% 0% 2.5% 0%;
+    margin: 5% 0% 0% 0%;
     h3,a{
       color: rgba(white, 0.6);
       font-size: 0.8rem;
-      margin-right: 1%;
+      margin: 0% 1% 0% 0%;
     }
     a{
       transition: opacity 0.2s;

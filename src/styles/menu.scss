@@ -3,13 +3,18 @@
 .menu{
     position: fixed;
     width: 100%;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
+    justify-content: center;
     transition: all 0.25s;
     z-index: 10;
+    .container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
     span{
         cursor: pointer;
         transition: all 0.15s;
@@ -23,7 +28,7 @@
         justify-content: space-between;
     }
     box-sizing: border-box;
-    padding: 3% 7.5%;
+    padding: 3% 0%;
     @include desktop{
       .right{
         width: 20%;

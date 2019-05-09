@@ -7,7 +7,7 @@ class About extends Component {
   render() {
     return (
         this.props.siteContent ?
-        <div className='about'>
+        <div className='about container'>
             <div className='left'>
               <h1>our vision</h1>
                 <p>

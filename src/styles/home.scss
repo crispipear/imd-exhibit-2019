@@ -2,24 +2,27 @@
 
 .landing{
     width: 100%;
+    margin-top: 10vh;
     min-height: 90vh;
-    padding: 7.5%;
     position: relative;
     box-sizing: border-box;
     h1{
         color: lighten($text, 12.5%);
-        line-height: 7.5rem;
-        font-size: 5.5rem;
+        // -webkit-text-fill-color: transparent;
+        // -webkit-text-stroke-width: 2px;
+        // -webkit-text-stroke-color: lighten($text, 12.5%);
+        font-size: 7.25rem;
+        line-height: 10rem;
     }
-    @include desktop{
+    @include laptop{
       h1{
-        font-size: 8.5rem;
-        line-height: 11rem;
+        line-height: 7rem;
+        font-size: 5.5rem;
       }
     }
     .scroll{
       height: 90vh;
-      left: 1.5%;
+      left: -10%;
       width: 5%;
       position: absolute;
       display: flex;
@@ -39,6 +42,7 @@
         font-size: 0.8rem;
         cursor: default;
         transform: rotate(180deg);
+        letter-spacing: 0.15rem;
         writing-mode: vertical-rl;
       }
     }
@@ -50,7 +54,7 @@
     justify-content: space-between;
     align-items: flex-start;
     box-sizing: border-box;
-    padding: 7.5%;
+    padding: 7.5% 0%;
     .left{
         width: 55%;
     }

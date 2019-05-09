@@ -34,13 +34,15 @@ export default class Menu extends Component {
   render() {
     return (
       <div className={'menu' + (this.state.scrollUp ? ' menu-hidden' : ' menu-appear') + (this.state.shadow ? ' menu-shadow' : '')}>
-        <div className='left'>
-            <span onClick={() => this._scroll('.app')}>IMD c/o 2019</span>
-        </div>
-        <div className='right'>
-            <span onClick={() => this._scroll('.capstones')}>Capstones</span>
-            <span onClick={() => this._scroll('.students')}>Students</span>
-            <span onClick={() => this._scroll('.about')}>About</span>
+        <div className='container'>
+          <div className='left'>
+              <span onClick={() => this._scroll('.app')}>IMD c/o 2019</span>
+          </div>
+          <div className='right'>
+              <span onClick={() => this._scroll('.capstones')}>Capstones</span>
+              <span onClick={() => this._scroll('.students')}>Students</span>
+              <span onClick={() => this._scroll('.about')}>About</span>
+          </div>
         </div>
       </div>
     );

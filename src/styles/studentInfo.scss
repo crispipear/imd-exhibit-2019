@@ -9,7 +9,7 @@
   .student-info{
     position: absolute;
     top: 0;
-    width: 60%;
+    width: 50%;
     height: 100vh;
     background-color: white;
     -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
@@ -26,7 +26,7 @@
     .left{
       display: flex;
       flex-direction: column;
-      padding: 5%;
+      padding: 7.5% 3.75% 0% 7.5%;
       .student-info-portrait{
         margin-bottom: 7.5%;
         position: relative;
@@ -60,11 +60,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 5%;
+        margin-bottom: 2.5%;
         h3, h4 {
           margin: 0%;
           text-align: left;
-          font-size: 0.85rem;
+          font-size: 0.875rem;
           flex: 1;
           line-height: 1.25rem;
         }
@@ -80,18 +80,18 @@
       }
     }
     .right{
-      padding: 3.5%;
-      margin-top: 15%;
-      overflow-y: scroll;
+      padding: 0% 7.5% 0% 3.75%;
+      margin-top: 20%;
       ::-webkit-scrollbar { 
         display: none; 
       }
       h1{
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       p{
-        font-size: 0.85rem;
-        line-height: 1.35rem;
+        font-size: 0.95rem;
+        line-height: 1.65rem;
+        margin: 5% 0%;
       }
       p.focus{
         color: rgba($text, 0.5);
@@ -102,9 +102,26 @@
         flex-direction: column;
         align-items: flex-start;
         a{
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           display: inline-block;
           margin: 1.5% 0%;
+        }
+      }
+    }
+    @include laptop{
+      width: 60%;
+      .right{
+        margin-top: 15%;
+        h1{
+          font-size: 1.5rem;
+        }
+        p{
+          font-size: 0.8rem;
+          line-height: 1.25rem;
+          margin: 5% 0%;
+        }
+        a{
+          font-size: 0.8rem;
         }
       }
     }

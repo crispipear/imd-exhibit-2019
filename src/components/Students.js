@@ -7,12 +7,15 @@ class Students extends Component {
 
   render() {
     return (
-        <div className="students">
-          {this.props.data&&
-            this.props.data.map((student, key) => (
-              <StudentCard showStudentInfo={this.props.showStudentInfo} name={student.name} key={key} assets={this.props.assets}/>
-            ))
-          }
+        <div className="students container">
+          <span className="students-title">Students</span>
+          <div className="students-cards-container">
+            {this.props.data&&
+              this.props.data.map((student, key) => (
+                <StudentCard showStudentInfo={this.props.showStudentInfo} name={student.name} key={key} assets={this.props.assets}/>
+              ))
+            }
+          </div>
         </div>
     );
   }
