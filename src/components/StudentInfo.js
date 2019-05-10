@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SiteConsumer } from './SiteContext';
 import '../styles/studentInfo.scss';
+import {ReactComponent as Assets} from '../assets/patterns.svg';
 
 class StudentInfo extends Component {
   state = {
@@ -33,7 +34,7 @@ class StudentInfo extends Component {
       <div className='student-info-container' onClick={(e) => this._handleClick(e)}
         style={{
           pointerEvents: this.props.studentInfo ? 'all' : 'none',
-          backgroundColor: this.props.studentInfo ? 'rgba(0,0,0, 0.8)' : 'transparent'
+          backgroundColor: this.props.studentInfo ? 'rgba(0,0,0, 0.9)' : 'transparent'
         }}
       >
         {
@@ -43,9 +44,6 @@ class StudentInfo extends Component {
           > 
             <span className='close-button' onClick={this.props.closeStudentInfo}>&times;</span>
             <div className='student-info-portrait'>
-              <div className='overlay1'
-                style={{ backgroundColor: this.state.student.favoriteColor, opacity: this.state.hover ? 1 : 0 }}
-              />
               <div className='portrait'
                 style={{ backgroundImage: `url(${this.props.assets.sample_portrait})` }} />
             </div>
@@ -80,11 +78,9 @@ class StudentInfo extends Component {
           <div className='student-info'
             style={{ right: this.props.studentInfo ? 0 : '-60%' }}
           >
+            <Assets className="student-info-overlay" style={{opacity: this.state.hover ? 1: 0, fill: this.state.student.favoriteColor}}/>
             <div className='left'>
               <div className='student-info-portrait'>
-                <div className='overlay1'
-                  style={{ backgroundColor: this.state.student.favoriteColor, opacity: this.state.hover ? 1 : 0 }}
-                />
                 <div className='portrait'
                   style={{ backgroundImage: `url(${this.props.assets.sample_portrait})` }} />
               </div>

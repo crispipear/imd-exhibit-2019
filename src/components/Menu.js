@@ -36,7 +36,7 @@ export default class Menu extends Component {
       <div className={'menu' + (this.state.scrollUp ? ' menu-hidden' : ' menu-appear') + (this.state.shadow ? ' menu-shadow' : '')}>
         <div className='container'>
           <div className='left'>
-              <span onClick={() => this._scroll('.app')}>IMD c/o 2019</span>
+              <span onClick={() => this._scroll('.app')}>Interactive Media Design 2019</span>
           </div>
           <div className='right'>
               <span onClick={() => this._scroll('.capstones')}>Capstones</span>

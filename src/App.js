@@ -12,19 +12,21 @@ import StudentInfo from './components/StudentInfo';
 import LoadScreen from './components/LoadScreen';
 class App extends Component {
   state={
-    loaded: false
+    loaded: false,
+    position: 'fixed'
   }
   componentDidMount(){
     setTimeout(() => {
       this.setState({
-        loaded: true
+        loaded: true,
+        position: 'unset'
       })
     }, 2000)
   }
   render() {
     return (
       <SiteProvider>
-        <div className="app" style={{maxHeight: !this.state.loaded ? '100vh': 'none'}}>
+        <div className="app" style={{position: this.state.position}}>
           <LoadScreen loaded={this.state.loaded}/>
           <StudentInfo/>
           <Menu/>

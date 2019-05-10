@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import {SiteConsumer} from './SiteContext';
 import '../styles/home.scss';
+import {ReactComponent as FACEBOOK} from '../assets/facebook.svg';
+import {ReactComponent as TWITTER} from '../assets/twitter.svg';
+import {ReactComponent as LINKEDIN} from '../assets/linkedin.svg';
 
+const share = [
+  {
+    link: "http://www.facebook.com/sharer.php?u=https://uwbimd2019.com",
+    icon: <FACEBOOK />
+  },
+  {
+    link: "http://www.linkedin.com/shareArticle?mini=true&url=https://uwbimd2019.com",
+    icon: <LINKEDIN />
+  },
+  {
+    link: "https://twitter.com/share?url=https://uwbimd2019.com",
+    icon: <TWITTER />
+  },
+]
 
 class About extends Component {
   render() {
@@ -24,6 +41,16 @@ class About extends Component {
                 <p>{this.props.siteContent.exhibit_date}</p>
                 <h2>Time</h2>
                 <p>{this.props.siteContent.exhibit_time}</p>
+                <h2>Share</h2>
+                <p className="about-share">
+                  {
+                    share.map((item, key) => 
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" key={key}>
+                        {item.icon}
+                      </a>
+                    )
+                  }
+                </p>
             </div>
         </div>
         :
