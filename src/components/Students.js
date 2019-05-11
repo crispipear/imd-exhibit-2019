@@ -14,6 +14,8 @@ class Students extends Component {
               this.props.data.map((student, key) => (
                 <StudentCard showStudentInfo={this.props.showStudentInfo} 
                               student={student} key={key} assets={this.props.assets}
+                              clicked={this.props.studentInfo}
+                              curStudent={this.props.curStudent}
                 />
               ))
             }
@@ -25,8 +27,9 @@ class Students extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({students, assets, showStudentInfo, updateCurPos}) => (
-      <Students data={students} assets={assets} showStudentInfo={showStudentInfo}/>
+    {({students, assets, showStudentInfo, studentInfo, curStudent}) => (
+      <Students data={students} assets={assets} curStudent={curStudent}
+       showStudentInfo={showStudentInfo} studentInfo={studentInfo}/>
     )}
   </SiteConsumer>
 )

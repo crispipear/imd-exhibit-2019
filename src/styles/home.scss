@@ -27,7 +27,7 @@
 }
 @keyframes fadeIn{
   0%{opacity: 0;}
-  100%{opacity: 0.75;}
+  100%{opacity: 0.5;}
 }
 @keyframes fadeIn2{
   0%{opacity: 0;}
@@ -66,6 +66,7 @@
     .scroll{
       opacity: 0;
       height: 90vh;
+      top: 0%;
       left: -10%;
       width: 5%;
       position: absolute;
@@ -91,7 +92,9 @@
       @include mobile{
         height: auto;
         left: 50%;
-        bottom: 0%;
+        top: unset;
+        bottom: 7.5%;
+        
         div{
           margin-top: 10px;
           height: 40px;

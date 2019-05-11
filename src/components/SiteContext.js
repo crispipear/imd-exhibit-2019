@@ -87,17 +87,9 @@ export class SiteProvider extends Component {
     const siteAssetsData = await fetchAssets();
     this._processAssets(siteAssetsData);
     const studentsData = await fetchData('students');
+    this._processStudentsData(studentsData);
     const projectsData = await fetchData('projects');
     this.setState({
-      students: studentsData.sort((a, b) => {
-        let aLastName = a.lastName
-        let bLastName = b.lastName
-    
-        if(aLastName < bLastName) return -1
-        if(aLastName > bLastName) return 1
-    
-        return 0
-      }),
       projects: projectsData.sort((a, b) => {
         let aName = a.name
         let bName = b.name
@@ -110,10 +102,37 @@ export class SiteProvider extends Component {
     })
   }
 
+  _processStudentsData = data => {
+    data.map(student => {
+      if(student.portrait){
+        student.portrait = `https:${student.portrait.fields.file.url}`
+      }else{
+        student.portrait = this.state.assets.sample_portrait
+      }
+      if(student.portraitAlt){
+        student.portraitAlt = `https:${student.portraitAlt.fields.file.url}`
+      }else{
+        student.portraitAlt = this.state.assets.test
+      }
+    })
+    this.setState({
+      students: data.sort((a, b) => {
+        let aLastName = a.lastName
+        let bLastName = b.lastName
+    
+        if(aLastName < bLastName) return -1
+        if(aLastName > bLastName) return 1
+    
+        return 0
+      })
+    })
+  }
+
+
   _processAssets = data => {
     let assets = {}
     data.map(obj => {
-      assets[obj.title] = `https://${obj.file.url}`
+      assets[obj.title] = `https:${obj.file.url}`
     })
     this.setState({
       assets

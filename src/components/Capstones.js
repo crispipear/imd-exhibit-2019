@@ -29,7 +29,7 @@ class Capstones extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({projects, showProjInfo, browser, updateCurPos}) => (
+    {({projects, showProjInfo, browser}) => (
       <Capstones data={projects} showProjInfo={showProjInfo} browser={browser}/>
     )}
   </SiteConsumer>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { SiteConsumer } from './SiteContext';
 import '../styles/studentInfo.scss';
-import {ReactComponent as Assets} from '../assets/patterns.svg';
-import {ReactComponent as AssetsMobile} from '../assets/patterns_mobile.svg';
+import { ReactComponent as Assets } from '../assets/patterns.svg';
+import { ReactComponent as AssetsMobile } from '../assets/patterns_mobile.svg';
 import { scrollTo } from '../utils/scroll';
 
 class StudentInfo extends Component {
@@ -20,7 +20,7 @@ class StudentInfo extends Component {
   }
 
   _handleClick = e => {
-    if (this.props.browser.width > 1023){
+    if (this.props.browser.width > 1023) {
       let inInfoSpace = e.nativeEvent.path.some(p => p.className == 'student-info')
       if (this.props.studentInfo && !inInfoSpace) {
         this._close()
@@ -28,13 +28,13 @@ class StudentInfo extends Component {
     }
   }
 
-  _close = () =>{
+  _close = () => {
     this.props.closeStudentInfo()
     this.setState({
       clicked: false,
       hover: false
     })
-    if(this.props.browser.width <= 1023){
+    if (this.props.browser.width <= 1023) {
       scrollTo(this.props.curPos, 0)
     }
   }
@@ -45,7 +45,7 @@ class StudentInfo extends Component {
     })
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.curStudent !== this.props.curStudent){
+    if (nextProps.curStudent !== this.props.curStudent) {
       let student = nextProps.students.find(s => s.name == nextProps.curStudent) || {}
       this.setState({
         student
@@ -65,17 +65,30 @@ class StudentInfo extends Component {
           this.props.browser.width <= 1023 &&
           <div className='student-info'
             style={{ right: this.props.studentInfo ? 0 : '-100%' }}
-          > 
+          >
             <span className='close-button' onClick={this._close}>&times;</span>
-            <AssetsMobile className="student-info-overlay" style={{opacity: this.state.clicked ? 1: 0, fill: this.state.student.favoriteColor}}/>
+            <AssetsMobile className="student-info-overlay" style={{ opacity: this.state.clicked ? 1 : 0, fill: this.state.student.favoriteColor }} />
             <div className='student-info-portrait'>
               <div className='portrait'
-                style={{ backgroundImage: `url(${this.props.assets.sample_portrait})` }} />
+                style={{
+                  backgroundImage: `url(${this.state.student.portraitAlt})`,
+                  zIndex: 2,
+                  opacity: this.state.clicked ? 1 : 0
+                }} />
+              <div className='portrait'
+                style={{ backgroundImage: `url(${this.state.student.portrait})` }} />
             </div>
 
             <h1>{this.state.student.name}</h1>
             <p className='focus'>— {this.state.student.focus}</p>
-            <p>{this.state.student.bio}</p>
+            {
+              this.state.student.bio &&
+              this.state.student.bio.split("//").map((paragraph, key) =>
+                <p key={key}>
+                  {paragraph}
+                </p>
+              )
+            }
             <div className='links'>
               <a target="_blank" rel="noopener noreferrer" href={this.state.student.portfolio}>portfolio</a>
               <a target="_blank" rel="noopener noreferrer" href={this.state.student.linkedin}>linkedin</a>
@@ -102,11 +115,17 @@ class StudentInfo extends Component {
           <div className='student-info'
             style={{ right: this.props.studentInfo ? 0 : '-60%' }}
           >
-            <Assets className="student-info-overlay" style={{opacity: this.state.hover ? 1: 0, fill: this.state.student.favoriteColor}}/>
+            <Assets className="student-info-overlay" style={{ opacity: this.state.hover ? 1 : 0, fill: this.state.student.favoriteColor }} />
             <div className='left'>
               <div className='student-info-portrait'>
                 <div className='portrait'
-                  style={{ backgroundImage: `url(${this.props.assets.sample_portrait})` }} />
+                  style={{
+                    backgroundImage: `url(${this.state.student.portraitAlt})`,
+                    zIndex: 2,
+                    opacity: this.state.hover ? 1 : 0
+                  }} />
+                <div className='portrait'
+                  style={{ backgroundImage: `url(${this.state.student.portrait})` }} />
               </div>
               <div className='student-info-fav'>
                 <h3>Favorite drink</h3>
@@ -131,7 +150,14 @@ class StudentInfo extends Component {
             <div className='right'>
               <h1>{this.state.student.name}</h1>
               <p className='focus'>— {this.state.student.focus}</p>
-              <p>{this.state.student.bio}</p>
+              {
+                this.state.student.bio &&
+                this.state.student.bio.split("//").map((paragraph, key) =>
+                  <p key={key}>
+                    {paragraph}
+                  </p>
+                )
+              }
             </div>
           </div>
         }
@@ -142,9 +168,9 @@ class StudentInfo extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({ students, assets, studentInfo, closeStudentInfo, curStudent, browser, curPos}) => (
-      <StudentInfo students={students} assets={assets} studentInfo={studentInfo}
-        closeStudentInfo={closeStudentInfo} curStudent={curStudent} browser={browser} 
+    {({ students, studentInfo, closeStudentInfo, curStudent, browser, curPos }) => (
+      <StudentInfo students={students} studentInfo={studentInfo}
+        closeStudentInfo={closeStudentInfo} curStudent={curStudent} browser={browser}
         curPos={curPos}
       />
     )}

@@ -16,13 +16,16 @@ class App extends Component {
     loaded: false,
     position: 'fixed'
   }
-  componentDidMount(){
+  handleLoad = () => {
     setTimeout(() => {
       this.setState({
         loaded: true,
         position: 'unset'
       })
     }, 2000)
+  }
+  componentDidMount(){
+    window.addEventListener('load', this.handleLoad);
   }
   render() {
     return (
