@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "5af34745b5dc734bf10de77f0ff7375a",
-    "url": "/static/media/facebook.5af34745.svg"
+    "revision": "03892e3f26c5cd4ddb493a7953c5907c",
+    "url": "/static/media/twitter.03892e3f.svg"
   },
   {
-    "revision": "d827f52cdfbbef9283e1",
-    "url": "/static/css/main.57de8aaa.chunk.css"
+    "revision": "e6003d6fff48d639792e",
+    "url": "/static/css/main.ef327280.chunk.css"
   },
   {
     "revision": "4e1238a3098e46dbce4e",
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "d827f52cdfbbef9283e1",
-    "url": "/static/js/main.d827f52c.chunk.js"
+    "revision": "5af34745b5dc734bf10de77f0ff7375a",
+    "url": "/static/media/facebook.5af34745.svg"
   },
   {
-    "revision": "03892e3f26c5cd4ddb493a7953c5907c",
-    "url": "/static/media/twitter.03892e3f.svg"
+    "revision": "e6003d6fff48d639792e",
+    "url": "/static/js/main.e6003d6f.chunk.js"
   },
   {
     "revision": "6bbbbadf8cdf21ea495c39966558a4fb",
@@ -40,7 +40,11 @@ self.__precacheManifest = [
     "url": "/static/media/patterns_mobile.6c8df42e.svg"
   },
   {
-    "revision": "49cd8dc6852fa02cf82c45c1f79f692b",
+    "revision": "87eb6179b1517573ff5525eb8d6ec297",
+    "url": "/static/media/hourglass.87eb6179.svg"
+  },
+  {
+    "revision": "66a556d8adacd538fd464eb49043d7b7",
     "url": "/index.html"
   }
 ];
