@@ -9,12 +9,9 @@ body{
     font-weight: 300;
     font-size: 1rem;
     letter-spacing: 0.05rem;
-    overflow-y:scroll;
 }
 .app{
     width: 100%;
-    overflow: hidden;
-    min-height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -22,8 +19,12 @@ body{
 }
 .container{
     max-width: 1250px;
+    padding: 7.5% 0%;
     @include laptop{
         max-width: 1000px;
+    }
+    @include mobile{
+        padding: 7.5% 7.5%;
     }
     width: 100%;
 }

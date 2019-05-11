@@ -33,6 +33,11 @@
             animation: loadingAnimation 1.5s ease-in-out forwards;
         }
     }
+    @include mobile{
+        h1{
+            font-size: 1rem;
+        }
+    }
 }
 @keyframes loadingText{
     0% {

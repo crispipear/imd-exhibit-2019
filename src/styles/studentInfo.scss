@@ -126,12 +126,16 @@
     @include mobile{
       width: 100%;
       flex-direction: column;
-      padding: 5% 7.5%;
+      padding: 5% 7.5% 30% 7.5%;
       box-sizing: border-box;
-      overflow: scroll;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      .student-info-overlay{
+        position: fixed;
+      }
       .close-button{
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 3rem;
         opacity: 0.5;
         margin-bottom: 7.5%;
         text-align: left;
@@ -142,18 +146,16 @@
         background-position: center;
         background-size: cover;
       }
-      h1{
-        font-size: 1.5rem;
-      }
       p{
-        font-size: 0.85rem;
-        line-height: 1.25rem;
+        font-size: 0.8rem;
+        line-height: 1.4rem;
         margin: 0% 0% 5% 0%;
       }
       .links{
         margin-bottom: 7.5%;
         a{
           margin-right: 10px;
+          font-size: 0.85rem;
         }
       }
       .student-info-fav{
@@ -162,11 +164,14 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2.5%;
+        margin-bottom: 7.5%;
         h3, h4{
-          font-size: 0.9rem;
-          line-height: 1rem;
+          font-size: 0.8rem;
+          line-height: 0rem;
           margin: 0%;
+        }
+        h4{
+          font-weight: 300;
         }
         div{
           width: 10px;

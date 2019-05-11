@@ -10,7 +10,8 @@ const SiteContext = React.createContext({
   curStudent: undefined,
   studentInfo: undefined,
   closeStudentInfo: undefined,
-  closeProjInfo: undefined
+  closeProjInfo: undefined,
+  updateCurPos: undefined
 })
 
 export const SiteConsumer = SiteContext.Consumer
@@ -40,7 +41,8 @@ export class SiteProvider extends Component {
     curProj: "",
     studentInfo: false,
     projInfo: false,
-    browser: {width: 0, height: 0}
+    browser: {width: 0, height: 0},
+    curPos: 0
   }
 
   showStudentInfo = name => {
@@ -48,6 +50,7 @@ export class SiteProvider extends Component {
       curStudent: name,
       studentInfo: true
     })
+    this._updateCurPos()
   }
 
   showProjInfo = name => {
@@ -55,6 +58,7 @@ export class SiteProvider extends Component {
       curProj: name,
       projInfo: true
     })
+    this._updateCurPos()
   }
 
   closeProjInfo = () =>{
@@ -67,6 +71,12 @@ export class SiteProvider extends Component {
     this.setState({
       studentInfo: false
     })
+  }
+
+  _updateCurPos = () =>{
+    this.setState({
+      curPos: window.scrollY
+    }, ()=>{console.log(this.state.curPos)})
   }
 
   _fetchData = async () => {
@@ -133,7 +143,8 @@ export class SiteProvider extends Component {
           curProj: this.state.curProj,
           studentInfo: this.state.studentInfo,
           projInfo: this.state.projInfo,
-          browser: this.state.browser
+          browser: this.state.browser,
+          curPos: this.state.curPos
         }}
       >
         {this.props.children}

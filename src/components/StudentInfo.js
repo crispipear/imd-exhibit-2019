@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { SiteConsumer } from './SiteContext';
 import '../styles/studentInfo.scss';
 import {ReactComponent as Assets} from '../assets/patterns.svg';
+import {ReactComponent as AssetsMobile} from '../assets/patterns_mobile.svg';
+import { scrollTo } from '../utils/scroll';
 
 class StudentInfo extends Component {
   state = {
     student: {},
-    hover: false
+    hover: false,
+    clicked: false
   }
   _handleHover = () => {
     this.setState({ hover: true })
@@ -17,12 +20,38 @@ class StudentInfo extends Component {
   }
 
   _handleClick = e => {
-    let inInfoSpace = e.nativeEvent.path.some(p => p.className == 'student-info')
-    if (this.props.studentInfo && !inInfoSpace) {
-      this.props.closeStudentInfo()
+    if (this.props.browser.width > 1023){
+      let inInfoSpace = e.nativeEvent.path.some(p => p.className == 'student-info')
+      if (this.props.studentInfo && !inInfoSpace) {
+        this._close()
+      }
     }
   }
+
+  _close = () =>{
+    this.props.closeStudentInfo()
+    this.setState({
+      clicked: false,
+      hover: false
+    })
+    if(this.props.browser.width <= 1023){
+      scrollTo(this.props.curPos, 0)
+    }
+  }
+
+  _colorClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
   componentWillReceiveProps(nextProps) {
+    if(nextProps.studentInfo == true){
+      document.getElementsByClassName("app")[0].style.position = 'fixed';
+      document.getElementsByClassName("app")[0].style.overflow = 'hidden';
+    }else if(nextProps.studentInfo == false){
+      document.getElementsByClassName("app")[0].style.position = 'unset';
+      document.getElementsByClassName("app")[0].style.overflow = 'auto';
+    }
     if(nextProps.curStudent !== this.props.curStudent){
       let student = nextProps.students.find(s => s.name == nextProps.curStudent) || {}
       this.setState({
@@ -44,7 +73,8 @@ class StudentInfo extends Component {
           <div className='student-info'
             style={{ right: this.props.studentInfo ? 0 : '-100%' }}
           > 
-            <span className='close-button' onClick={this.props.closeStudentInfo}>&times;</span>
+            <span className='close-button' onClick={this._close}>&times;</span>
+            <AssetsMobile className="student-info-overlay" style={{opacity: this.state.clicked ? 1: 0, fill: this.state.student.favoriteColor}}/>
             <div className='student-info-portrait'>
               <div className='portrait'
                 style={{ backgroundImage: `url(${this.props.assets.sample_portrait})` }} />
@@ -64,8 +94,7 @@ class StudentInfo extends Component {
             </div>
             <div className='student-info-fav'
               style={{ cursor: 'pointer' }}
-              onMouseEnter={this._handleHover}
-              onMouseLeave={this._handleMouseLeave}
+              onClick={this._colorClick}
             >
               <h3>Favorite color</h3>
               <h4>
@@ -120,9 +149,11 @@ class StudentInfo extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({ students, assets, studentInfo, closeStudentInfo, curStudent, browser }) => (
+    {({ students, assets, studentInfo, closeStudentInfo, curStudent, browser, curPos}) => (
       <StudentInfo students={students} assets={assets} studentInfo={studentInfo}
-        closeStudentInfo={closeStudentInfo} curStudent={curStudent} browser={browser} />
+        closeStudentInfo={closeStudentInfo} curStudent={curStudent} browser={browser} 
+        curPos={curPos}
+      />
     )}
   </SiteConsumer>
 )

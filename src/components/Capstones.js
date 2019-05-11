@@ -17,6 +17,7 @@ class Capstones extends Component {
                     showProjInfo={this.props.showProjInfo}
                     capstone={capstone}
                     key={key}
+                    browserWidth={this.props.browser.width}
                   />
               ))
             }
@@ -28,8 +29,8 @@ class Capstones extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({projects, showProjInfo}) => (
-      <Capstones data={projects} showProjInfo={showProjInfo}/>
+    {({projects, showProjInfo, browser, updateCurPos}) => (
+      <Capstones data={projects} showProjInfo={showProjInfo} browser={browser}/>
     )}
   </SiteConsumer>
 )

@@ -3,7 +3,7 @@
 .landing-gradient {
   position: absolute;
   z-index: -1;
-  bottom: 2.5%;
+  bottom: 10%;
   right: 0%;
   width:50%;
   opacity: 0;
@@ -11,7 +11,19 @@
   border-radius: 50%;
   background: $key1;
   overflow: hidden;
-  animation: 0.5s ease-in 3s forwards fadeIn
+  animation: 0.5s ease-in 3s forwards fadeIn;
+  @include laptop{
+    bottom: 7.5%;
+    width: 45%;
+    padding-bottom: 45%;
+  }
+  @include mobile{
+    width: 250px;
+    height: 250px;
+    padding: 0%;
+    right: 5%;
+    bottom: 15%;
+  }
 }
 @keyframes fadeIn{
   0%{opacity: 0;}
@@ -28,21 +40,27 @@
     min-height: 90vh;
     position: relative;
     box-sizing: border-box;
+    padding: 5% 0%;
     h1{
         opacity: 0;
         animation: 0.75s ease-in 3.5s forwards fadeIn2;
         color: lighten($text, 12.5%);
-        // -webkit-text-fill-color: transparent;
-        // -webkit-text-stroke-width: 2px;
-        // -webkit-text-stroke-color: lighten($text, 12.5%);
         font-size: 7.25rem;
         line-height: 10rem;
+        margin: 0%;
         transition: all 0.5s;
     }
     @include laptop{
       h1{
         line-height: 7rem;
         font-size: 5.25rem;
+      }
+    }
+    @include mobile{
+      padding: 5% 7.5%;
+      h1{
+        font-size: 3rem;
+        line-height: 4.25rem;
       }
     }
     .scroll{
@@ -57,8 +75,6 @@
       flex-direction: column;
       animation: 0.5s ease-in 4s forwards fadeIn2;
       div{
-        // position: absolute;
-        // bottom: 0;
         width: 1px;
         height: 50px;
         background-color: rgba($text, 0.75);
@@ -72,16 +88,38 @@
         letter-spacing: 0.15rem;
         writing-mode: vertical-rl;
       }
+      @include mobile{
+        height: auto;
+        left: 50%;
+        bottom: 0%;
+        div{
+          margin-top: 10px;
+          height: 40px;
+        }
+        span{
+          transform: rotate(0deg);
+          writing-mode: unset;
+        }
+      }
     }
+
 }
 .about-share{
-  margin-top: 2.5%;
   a{
-    margin-right: 3.5%;
+    margin-right: 5%;
     svg{
       fill: $text;
       width: 20px;
       height: 20px;
+    }
+  }
+  @include mobile{
+    a{
+      margin-right: 15px;
+      svg{
+        width: 25px;
+        height: 25px;
+      }
     }
   }
 }
@@ -93,10 +131,11 @@
     box-sizing: border-box;
     padding: 7.5% 0%;
     .left{
-        width: 55%;
+        flex: 2;
+        margin-right: 17.5%;
     }
     .right{
-        width: 25%;
+        flex: 1;
     }
     h1{
         font-size: 1rem;
@@ -126,6 +165,21 @@
       p{
         font-size: 0.8rem;
         line-height: 1.4rem;
+      }
+    }
+    @include mobile{
+      padding: 7.5% 7.5%;
+      h2{
+        font-size: 0.8rem;
+      }
+      p{
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+      }
+      flex-direction: column;
+      .left, .right{
+        flex: 1;
+        width: 100%;
       }
     }
 }

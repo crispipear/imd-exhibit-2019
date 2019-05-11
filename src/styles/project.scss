@@ -14,7 +14,7 @@
     .close-button{
         position: absolute;
         top: 5%;
-        right: 2.5%;
+        right: 0%;
         font-size: 3rem;
         cursor: pointer;
         color: $text;
@@ -22,15 +22,25 @@
         &:hover{
             opacity: 0.5;
         }
+        @include mobile{
+            position: unset;
+            margin-bottom: 7.5%;
+        }
     }
     .container{
         position: relative;
         box-sizing: border-box;
+        padding: 7.5% 0%;
         overflow-y: scroll;
-        padding: 5% 0%;
+        -webkit-overflow-scrolling: touch;
         max-height: 100vh;
         -ms-overflow-style: none;  // IE 10+
         scrollbar-width: none;  // Firefox
+        @include mobile{
+            padding: 15% 7.5% 7.5% 7.5%;
+            display: flex;
+            flex-direction: column;
+        }
     }
     .header{
         width: 100%;
@@ -47,7 +57,7 @@
             width: 100%;
             padding-bottom: 50%;
             background-position: center;
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
         }
         a{
@@ -72,6 +82,18 @@
             p{
                 font-size: 0.8rem;
                 line-height: 1.4rem;
+            }
+        }
+        @include mobile{
+            flex-direction: column;
+            display: block;
+            .project-featured{
+                background-size: cover;
+                padding-bottom: 225px;
+            }
+            .project-featured, .project-info{
+                margin: 0%;
+                width: 100%;
             }
         }
     }
@@ -107,6 +129,9 @@
     .content{
         width: 100%;
         padding-bottom: 5%;
+        @include mobile{
+            padding-bottom: 7.5%;
+        }
     }
     .container::-webkit-scrollbar{ 
         display: none;  // Safari and Chrome
@@ -147,6 +172,17 @@
             h3{
                 font-size: 0.8rem;
             }
+        }
+        @include mobile{
+            .project-member-pic{
+                width: 30px;
+                height: 30px;
+                margin-right: 5%;
+            }
+            h3{
+                font-size: 0.8rem;
+            }
+            grid-column-gap: 2.5%;
         }
     }
     .project-image{

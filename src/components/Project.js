@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { SiteConsumer } from './SiteContext';
 import '../styles/project.scss';
+import { scrollTo } from '../utils/scroll';
 
 class Project extends Component {
   state = {
     project: {},
     hover: false,
-    loaded: false
+    loaded: false,
   }
 
   _onLoad = () =>{
@@ -15,7 +16,21 @@ class Project extends Component {
     })
   }
 
+  _close = () => {
+    if(this.props.browser.width <= 1023){
+      scrollTo(this.props.curPos, 0)
+    }
+    this.props.closeProjInfo()
+  }
+
   componentWillReceiveProps(nextProps) {
+    if(nextProps.projInfo == true){
+      document.getElementsByClassName("app")[0].style.position = 'fixed';
+      document.getElementsByClassName("app")[0].style.overflow = 'hidden';
+    }else if(nextProps.projInfo == false){
+      document.getElementsByClassName("app")[0].style.position = 'unset';
+      document.getElementsByClassName("app")[0].style.overflow = 'auto';
+    }
     if(nextProps.curProj !== this.props.curProj && nextProps.curProj !== null){
         let project = nextProps.projects.find(s => s.name == nextProps.curProj)
         if(project){
@@ -41,8 +56,8 @@ class Project extends Component {
           opacity: this.props.projInfo ? 1 : 0
         }}
       >
-        <span className='close-button' onClick={this.props.closeProjInfo}>&times;</span>
         <div className='container'>
+        <span className='close-button' onClick={this._close}>&times;</span>
             <div className='header'>
                 <div className='project-info'>
                     <h1>{project.name}</h1>
@@ -105,9 +120,10 @@ class Project extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({ students, projects, closeProjInfo, projInfo, curProj}) => (
+    {({ students, projects, closeProjInfo, projInfo, curProj, curPos, browser}) => (
       <Project students={students} projects={projects} curProj={curProj}
-      closeProjInfo={closeProjInfo} projInfo={projInfo}
+      closeProjInfo={closeProjInfo} projInfo={projInfo} curPos={curPos}
+      browser={browser}
     /> 
     )}
   </SiteConsumer>
