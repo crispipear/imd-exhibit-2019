@@ -74,9 +74,11 @@ export class SiteProvider extends Component {
   }
 
   _updateCurPos = () =>{
-    this.setState({
-      curPos: window.scrollY
-    }, ()=>{console.log(this.state.curPos)})
+    if (this.state.browser.width <= 1023){
+      this.setState({
+        curPos: window.scrollY
+      })
+    }
   }
 
   _fetchData = async () => {

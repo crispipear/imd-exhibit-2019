@@ -24,13 +24,6 @@ class Project extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.projInfo == true){
-      document.getElementsByClassName("app")[0].style.position = 'fixed';
-      document.getElementsByClassName("app")[0].style.overflow = 'hidden';
-    }else if(nextProps.projInfo == false){
-      document.getElementsByClassName("app")[0].style.position = 'unset';
-      document.getElementsByClassName("app")[0].style.overflow = 'auto';
-    }
     if(nextProps.curProj !== this.props.curProj && nextProps.curProj !== null){
         let project = nextProps.projects.find(s => s.name == nextProps.curProj)
         if(project){

@@ -45,13 +45,6 @@ class StudentInfo extends Component {
     })
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.studentInfo == true){
-      document.getElementsByClassName("app")[0].style.position = 'fixed';
-      document.getElementsByClassName("app")[0].style.overflow = 'hidden';
-    }else if(nextProps.studentInfo == false){
-      document.getElementsByClassName("app")[0].style.position = 'unset';
-      document.getElementsByClassName("app")[0].style.overflow = 'auto';
-    }
     if(nextProps.curStudent !== this.props.curStudent){
       let student = nextProps.students.find(s => s.name == nextProps.curStudent) || {}
       this.setState({
