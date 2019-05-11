@@ -10,6 +10,7 @@ import Capstones from './components/Capstones';
 import Footer from './components/Footer';
 import StudentInfo from './components/StudentInfo';
 import LoadScreen from './components/LoadScreen';
+import Project from './components/Project';
 class App extends Component {
   state={
     loaded: false,
@@ -28,6 +29,7 @@ class App extends Component {
       <SiteProvider>
         <div className="app" style={{position: this.state.position}}>
           <LoadScreen loaded={this.state.loaded}/>
+          <Project/>
           <StudentInfo/>
           <Menu/>
           <Landing/>

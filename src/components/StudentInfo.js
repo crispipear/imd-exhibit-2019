@@ -23,10 +23,12 @@ class StudentInfo extends Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    let student = nextProps.students.find(s => s.name == nextProps.curStudent) || {}
-    this.setState({
-      student
-    })
+    if(nextProps.curStudent !== this.props.curStudent){
+      let student = nextProps.students.find(s => s.name == nextProps.curStudent) || {}
+      this.setState({
+        student
+      })
+    }
   }
 
   render() {
@@ -34,7 +36,7 @@ class StudentInfo extends Component {
       <div className='student-info-container' onClick={(e) => this._handleClick(e)}
         style={{
           pointerEvents: this.props.studentInfo ? 'all' : 'none',
-          backgroundColor: this.props.studentInfo ? 'rgba(0,0,0, 0.9)' : 'transparent'
+          opacity: this.props.studentInfo ? 1 : 0
         }}
       >
         {
@@ -98,16 +100,16 @@ class StudentInfo extends Component {
                   <div style={{ backgroundColor: this.state.student.favoriteColor }} />
                 </h4>
               </div>
-            </div>
-            <div className='right'>
-              <h1>{this.state.student.name}</h1>
-              <p className='focus'>— {this.state.student.focus}</p>
-              <p>{this.state.student.bio}</p>
               <div className='links'>
                 <a target="_blank" rel="noopener noreferrer" href={this.state.student.portfolio}>portfolio</a>
                 <a target="_blank" rel="noopener noreferrer" href={this.state.student.linkedin}>linkedin</a>
                 <a href={'mailto:' + this.state.student.email}>email</a>
               </div>
+            </div>
+            <div className='right'>
+              <h1>{this.state.student.name}</h1>
+              <p className='focus'>— {this.state.student.focus}</p>
+              <p>{this.state.student.bio}</p>
             </div>
           </div>
         }

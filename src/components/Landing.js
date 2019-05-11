@@ -6,13 +6,13 @@ import '../styles/home.scss';
 class Landing extends Component {
   state = {
     movement: 0,
-    gradient: 'radial-gradient(at 30% 25%, #40E0D0, #FF0080)'
+    gradient: 'radial-gradient(at 30% 25%, #fff, #2d2d2d)'
   }
   _handleMouseMove = e => {
     let xperc = Math.round(e.pageX / this.props.browser.width * 100)
     let yperc = Math.round(e.pageY / this.props.browser.height * 100)
     this.setState({
-      gradient: `radial-gradient(at ${xperc}% ${yperc}%, #40E0D0, #FF0080)`
+      gradient: `radial-gradient(at ${xperc}% ${yperc}%, #fff, #2d2d2d)`
     })
   }
   _handleScroll = e => {

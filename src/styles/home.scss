@@ -3,7 +3,7 @@
 .landing-gradient {
   position: absolute;
   z-index: -1;
-  bottom: 5%;
+  bottom: 2.5%;
   right: 0%;
   width:50%;
   opacity: 0;
@@ -99,32 +99,33 @@
         width: 25%;
     }
     h1{
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 300;
         color: lighten($text, 25%);
         line-height: 2.5rem;
     }
     p{
         margin: 0% 0% 5% 0%;
-        font-size: 0.9rem;
-        line-height: 1.5rem;
+        font-size: 1.05rem;
+        line-height: 2rem;
     }
     h2{
-        margin: 2.5% 0%;
+        margin: 5% 0% 2.5% 0%;
         font-size: 0.95rem;
+        font-size: 1.05rem;
         font-weight: bold;
         color: $text;
     }
-    @include desktop{
+    @include laptop{
       h1{
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
       h2{
-        font-size: 1.05rem;
+        font-size: 0.95rem;
       }
       p{
-        font-size: 1.05rem;
-        line-height: 2rem;
+        font-size: 0.8rem;
+        line-height: 1.4rem;
       }
     }
 }

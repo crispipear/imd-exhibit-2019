@@ -14,6 +14,7 @@ class Capstones extends Component {
             {this.props.data&&
               this.props.data.map((capstone, key) => (
                 <CapstoneCard 
+                    showProjInfo={this.props.showProjInfo}
                     capstone={capstone}
                     key={key}
                   />
@@ -27,8 +28,8 @@ class Capstones extends Component {
 
 export default () => (
   <SiteConsumer>
-    {({projects}) => (
-      <Capstones data={projects}/>
+    {({projects, showProjInfo}) => (
+      <Capstones data={projects} showProjInfo={showProjInfo}/>
     )}
   </SiteConsumer>
 )

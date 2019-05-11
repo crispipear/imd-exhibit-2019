@@ -13,6 +13,7 @@
   width: 100%;
   height: 100vh;
   position: fixed;
+  background: rgba(0,0,0, 0.9);
   z-index: 50;
   transition: all 0.35s ease-out;
   .student-info{
@@ -36,6 +37,16 @@
       display: flex;
       flex-direction: column;
       padding: 7.5% 3.75% 0% 7.5%;
+      .links{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        a{
+          font-size: 0.9rem;
+          display: inline-block;
+          margin: 1.5% 0%;
+        }
+      }
       .student-info-portrait{
         margin-bottom: 7.5%;
         position: relative;
@@ -87,22 +98,12 @@
       }
       p{
         font-size: 0.95rem;
-        line-height: 1.65rem;
+        line-height: 1.75rem;
         margin: 5% 0%;
       }
       p.focus{
         color: rgba($text, 0.5);
         font-weight: 400;
-      }
-      .links{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        a{
-          font-size: 0.9rem;
-          display: inline-block;
-          margin: 1.5% 0%;
-        }
       }
     }
     @include laptop{
@@ -114,7 +115,7 @@
         }
         p{
           font-size: 0.8rem;
-          line-height: 1.25rem;
+          line-height: 1.4rem;
           margin: 5% 0%;
         }
         a{
