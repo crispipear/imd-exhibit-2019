@@ -22,7 +22,7 @@ class App extends Component {
         loaded: true,
         position: 'unset'
       })
-    }, 2000)
+    }, 3000)
   }
   componentDidMount(){
     window.addEventListener('load', this.handleLoad);
