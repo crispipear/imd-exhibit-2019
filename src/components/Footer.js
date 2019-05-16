@@ -28,7 +28,7 @@ const credits = {
     'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
     'Sara McDermott', 'Keiko Miyamoto'],
   marketing: ['Hannah Ferry', 'Maxton McGuire', 'Rachel Raymond', 'Cynthia Thais'],
-  catering: ['Hannah Ferry', 'Sara McDermott', 'Rachel Raymond'],
+  catering: ['Lorrie Cain', 'Hannah Ferry', 'Sara McDermott', 'Rachel Raymond'],
   photography: ['Su Li', 'Kyle Olason', 'Benjamin Siev', 'Hannah Tashiro'],
   music: ['Christa Tebbs']
 }

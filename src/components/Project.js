@@ -84,7 +84,7 @@ class Project extends Component {
           </div>
           <div className='content'>
             {
-              project.videoLink &&
+              project.videoLink ?
               <div className="block-video">
                 {
                   !this.state.loaded &&
@@ -94,6 +94,10 @@ class Project extends Component {
                 }
                 <iframe src={project.videoLink} onLoad={this._onLoad}
                   frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={true} />
+              </div>
+              :
+              <div className="video-ph">
+                <p>video coming soon</p>
               </div>
             }
             {

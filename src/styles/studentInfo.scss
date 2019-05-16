@@ -96,15 +96,17 @@
       }
       h1{
         font-size: 2rem;
+        margin: 0%;
       }
       p{
         font-size: 0.95rem;
         line-height: 1.75rem;
-        margin: 5% 0%;
+        margin: 3.5% 0%;
       }
       p.focus{
         color: rgba($text, 0.5);
         font-weight: 400;
+        margin-bottom: 5%;
       }
     }
     @include laptop{
@@ -117,7 +119,6 @@
         p{
           font-size: 0.8rem;
           line-height: 1.4rem;
-          margin: 5% 0%;
         }
         a{
           font-size: 0.8rem;
