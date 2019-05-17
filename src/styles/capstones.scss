@@ -15,14 +15,33 @@
 .capstones-title{
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
+  margin-bottom: 0.75%;
+  @include mobile{
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+  }
+}
+.capstones-title2{
   margin-bottom: 7.5%;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.1rem;
+  @include laptop{
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+  }
+  @include mobile{
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    text-align: center;
+  }
 }
 .capstones-line{
   position: absolute;
   left: 50%;
   width: 1px;
-  top: 10%;
-  height: 90%;
+  top: 12.5%;
+  height: 85%;
   background: rgba($text, 0.4);
   @include mobile{
     display: none;
@@ -30,6 +49,7 @@
 }
 
 .capstones-cards-container{
+  margin: 5% 0;
   width: 100%;
   display: flex;
   justify-content: space-between;

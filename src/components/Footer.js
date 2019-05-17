@@ -27,10 +27,7 @@ const credits = {
   faculty: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan',
     'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
     'Sara McDermott', 'Keiko Miyamoto'],
-  marketing: ['Hannah Ferry', 'Maxton McGuire', 'Rachel Raymond', 'Cynthia Thais'],
-  catering: ['Lorrie Cain', 'Hannah Ferry', 'Sara McDermott', 'Rachel Raymond'],
-  photography: ['Su Li', 'Kyle Olason', 'Benjamin Siev', 'Hannah Tashiro'],
-  music: ['Christa Tebbs']
+  special: ['Rachel Raymond','Maxton McGuire', 'Lorrie Cain','Hannah Ferry', 'Kyle Olason', 'Christa Tebbs', 'Cynthia Thais']
 }
 class About extends Component {
   render() {
@@ -42,7 +39,7 @@ class About extends Component {
             {
               Object.keys(credits).map((role, key) =>
                 <div key={key} className='footer-block'>
-                  <h2>{role == 'faculty' ? 'faculty (c/o 2019)' : role}</h2>
+                  <h2>{role == 'faculty' ? 'faculty (c/o 2019)' : role == 'special' ? 'special thanks' : role}</h2>
                   {
                     credits[role].map((name, key) =>
                       <h3 key={key}>{name}</h3>
