@@ -9,7 +9,7 @@ class Capstones extends Component {
     return (
         <div className="capstones container">
           <span className="capstones-title">Capstone Projects</span>
-          <span className="capstones-title2">We are still working hard on crafting our projects, stay tuned!</span>
+          <span className="capstones-title2">We are still working hard on crafting our capstone projects, stay tuned!</span>
           <div className="capstones-line"/>
           <div className="capstones-cards-container">
             {this.props.data&&

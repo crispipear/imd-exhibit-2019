@@ -20,15 +20,27 @@ const share = [
   },
 ]
 
-const credits = {
-  website: ['Su Li', 'Yin Yin', 'Benjamin Siev', 'Hannah Tashiro', 'Kyle Rhodes', 'Andrea Brado'],
-  exhibit: ['Rena Chen', 'Stephen Epperson', 'Nicole Lee', 'Jacob Luna', 'Sergio Mejia', 'Jeff Oh',
-    'Jimmy Seifert', 'Benjamin Siev', 'Hannah Tashiro', 'Junior Tran-Thien'],
-  faculty: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan',
+const credits = [
+  {
+    name: 'Website',
+    people: ['Su Li', 'Yin Yin', 'Benjamin Siev', 'Hannah Tashiro', 'Andrea Brado', 'Kyle Rhodes']
+  },
+  {
+    name: 'Exhibit Committee',
+    people: ['Abraham Avnisan', 'Rena Chen', 'Stephen Epperson', 'Nicole Lee', 'Jacob Luna', 'Sergio Mejia', 'Jeff Oh',
+    'Jimmy Seifert', 'Benjamin Siev', 'Hannah Tashiro', 'Junior Tran-Thien']
+  },
+  {
+    name: 'Faculty(c/o 2019)',
+    people: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan',
     'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
-    'Sara McDermott', 'Keiko Miyamoto'],
-  special: ['Rachel Raymond','Maxton McGuire', 'Lorrie Cain','Hannah Ferry', 'Kyle Olason', 'Christa Tebbs', 'Cynthia Thais']
-}
+    'Sara McDermott', 'Keiko Miyamoto']
+  },
+  {
+    name: 'Special Thanks',
+    people:['Rachel Raymond','Maxton McGuire', 'Lorrie Cain','Hannah Ferry', 'Kyle Olason', 'Christa Tebbs', 'Cynthia Thais']
+  }
+]
 class About extends Component {
   render() {
     return (
@@ -37,11 +49,11 @@ class About extends Component {
           <h1>Credits</h1>
           <div className='footer-content'>
             {
-              Object.keys(credits).map((role, key) =>
+              credits.map((credit, key) =>
                 <div key={key} className='footer-block'>
-                  <h2>{role == 'faculty' ? 'faculty (c/o 2019)' : role == 'special' ? 'special thanks' : role}</h2>
+                  <h2>{credit.name}</h2>
                   {
-                    credits[role].map((name, key) =>
+                    credit.people.map((name, key) =>
                       <h3 key={key}>{name}</h3>
                     )
                   }

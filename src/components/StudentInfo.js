@@ -84,7 +84,7 @@ class StudentInfo extends Component {
             </div>
 
             <h1>{this.state.student.name}</h1>
-            <p className='focus'>{this.state.student.focus}</p>
+            <p className='focus'>Fields — {this.state.student.focus}</p>
             {
               this.state.student.bio &&
               this.state.student.bio.split("//").map((paragraph, key) =>
@@ -154,7 +154,7 @@ class StudentInfo extends Component {
             </div>
             <div className='right'>
               <h1>{this.state.student.name}</h1>
-              <p className='focus'>{this.state.student.focus}</p>
+              <p className='focus'>Fields — {this.state.student.focus}</p>
               {
                 this.state.student.bio &&
                 this.state.student.bio.split("//").map((paragraph, key) =>

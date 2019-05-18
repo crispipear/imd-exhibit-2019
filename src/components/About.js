@@ -26,7 +26,7 @@ class About extends Component {
         this.props.siteContent ?
         <div className='about container'>
             <div className='left'>
-              <h1>our vision</h1>
+              <h1>Our Vision</h1>
                 {
                   this.props.siteContent.about&&
                    this.props.siteContent.about.split("//").map((paragraph, key)=>
@@ -37,7 +37,7 @@ class About extends Component {
                 }
             </div>
             <div className='right'>
-              <h1>capstone exhibition</h1>
+              <h1>Capstone Exhibition</h1>
                 <h2>Location</h2>
                 <p><a href="https://www.uwb.edu/arc" target="_blank" rel="noopener noreferrer" >
                   {this.props.siteContent.exhibit_location}</a>
