@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/static/media/hourglass.87eb6179.svg"
   },
   {
-    "revision": "f97ad179590afb77ff41656090806632",
+    "revision": "66e899730a9982ea0127a5e928a4e909",
     "url": "/index.html"
   }
 ];
