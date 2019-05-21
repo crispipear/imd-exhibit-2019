@@ -26,7 +26,7 @@ class About extends Component {
         this.props.siteContent ?
         <div className='about container'>
             <div className='left'>
-              <h1>Our Vision</h1>
+              <h1>About Us</h1>
                 {
                   this.props.siteContent.about&&
                    this.props.siteContent.about.split("//").map((paragraph, key)=>

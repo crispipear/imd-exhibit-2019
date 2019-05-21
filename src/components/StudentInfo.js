@@ -22,7 +22,7 @@ class StudentInfo extends Component {
 
   _handleClick = e => {
     if (this.props.browser.width > 1023) {
-      let inInfoSpace = e.nativeEvent.path.some(p => p.className == 'student-info')
+      let inInfoSpace = e.nativeEvent.target.className !== 'student-info-container'
       if (this.props.studentInfo && !inInfoSpace) {
         this._close()
       }

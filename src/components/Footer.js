@@ -20,29 +20,30 @@ const share = [
   },
 ]
 
-const credits = [
-  {
-    name: 'Website',
-    people: ['Su Li', 'Yin Yin', 'Benjamin Siev', 'Hannah Tashiro', 'Andrea Brado', 'Kyle Rhodes']
-  },
-  {
-    name: 'Exhibit Committee',
-    people: ['Abraham Avnisan', 'Rena Chen', 'Stephen Epperson', 'Nicole Lee', 'Jacob Luna', 'Sergio Mejia', 'Jeff Oh',
-    'Jimmy Seifert', 'Benjamin Siev', 'Hannah Tashiro', 'Junior Tran-Thien']
-  },
-  {
-    name: 'Faculty(c/o 2019)',
-    people: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan',
-    'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
-    'Sara McDermott', 'Keiko Miyamoto']
-  },
-  {
-    name: 'Special Thanks',
-    people:['Rachel Raymond','Maxton McGuire', 'Lorrie Cain','Hannah Ferry', 'Kyle Olason', 'Christa Tebbs', 'Cynthia Thais']
-  }
-]
+// const credits = [
+//   {
+//     name: 'Website',
+//     people: ['Su Li', 'Yin Yin', 'Benjamin Siev', 'Hannah Tashiro', 'Andrea Brado', 'Kyle Rhodes']
+//   },
+//   {
+//     name: 'Exhibit Committee',
+//     people: ['Abraham Avnisan', 'Rena Chen', 'Stephen Epperson', 'Nicole Lee', 'Jacob Luna', 'Sergio Mejia', 'Jeff Oh',
+//     'Jimmy Seifert', 'Benjamin Siev', 'Hannah Tashiro', 'Junior Tran-Thien']
+//   },
+//   {
+//     name: 'Faculty(c/o 2019)',
+//     people: ['David Socha', 'Carrie Bodle', 'Abraham Avnisan',
+//     'micha cárdenas', 'Mark Chen', 'Wanda Gregory', 'Mark Kochanski', 'Arnie Lund',
+//     'Sara McDermott', 'Keiko Miyamoto']
+//   },
+//   {
+//     name: 'Special Thanks',
+//     people:['Rachel Raymond','Maxton McGuire', 'Lorrie Cain','Hannah Ferry', 'Kyle Olason', 'Christa Tebbs', 'Cynthia Thais']
+//   }
+// ]
 class About extends Component {
   render() {
+    const credits = this.props.siteContent.credits ? this.props.siteContent.credits.credits || [] : []
     return (
       <div className='footer'>
         <div className='container'>

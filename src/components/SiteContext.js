@@ -142,7 +142,7 @@ export class SiteProvider extends Component {
   _processContent = data => {
     let content = {}
     data.map(obj => {
-      content[obj.name] = obj.content
+      content[obj.name] = obj.content || obj.json
     })
     this.setState({
       siteContent: content
