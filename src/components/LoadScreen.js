@@ -8,7 +8,7 @@ export default class LoadScreen extends Component {
             <div className="loader" style={{opacity: this.props.loaded ? 0 : 1}}>
                 <HOURGLASS/>
                 <h1>
-                    <span>UWB IMD 2019 </span>
+                    <span>UWB IMD 2019</span>
                 {/* <div className="loader-line"/> */}
                 </h1>
             </div>

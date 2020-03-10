@@ -22,14 +22,14 @@ const share = [
 
 class About extends Component {
   render() {
+    const {getContent, getAsset} = this.props;
     return (
-        this.props.siteContent ?
         <div className='about container'>
+            <div className='about-info'>
             <div className='left'>
               <h1>About Us</h1>
                 {
-                  this.props.siteContent.about&&
-                   this.props.siteContent.about.split("//").map((paragraph, key)=>
+                   getContent('about').split("//").map((paragraph, key)=>
                     <p key={key}>
                       {paragraph}
                     </p>
@@ -40,12 +40,12 @@ class About extends Component {
               <h1>Capstone Exhibition</h1>
                 <h2>Location</h2>
                 <p><a href="https://www.uwb.edu/arc" target="_blank" rel="noopener noreferrer" >
-                  {this.props.siteContent.exhibit_location}</a>
-                </p>
+                  {getContent('exhibit_location')}
+                </a></p>
                 <h2>Date</h2>
-                <p>{this.props.siteContent.exhibit_date}</p>
+                <p>{getContent('exhibit_date')}</p>
                 <h2>Time</h2>
-                <p>{this.props.siteContent.exhibit_time}</p>
+                <p>{getContent('exhibit_time')}</p>
                 <h2>Share</h2>
                 <p className="about-share">
                   {
@@ -57,17 +57,26 @@ class About extends Component {
                   }
                 </p>
             </div>
+            </div>
+            <div className='about-photo-grid'>
+                {
+                  getContent('about_images').length > 0 &&
+                  getContent('about_images').map(p => 
+                    <div className='item' key={p}>
+                      <img src={getAsset(p)}/>
+                    </div>
+                  )
+                }
+            </div>
         </div>
-        :
-        <div className='about'/>
     );
   }
 }
 
 export default () => (
   <SiteConsumer>
-    {({siteContent}) => (
-      <About siteContent={siteContent}/>
+    {({getContent, getAsset}) => (
+      <About getContent={getContent} getAsset={getAsset}/>
     )}
   </SiteConsumer>
 )

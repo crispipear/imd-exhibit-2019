@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {ReactComponent as LINKEDIN} from '../assets/linkedin.svg';
+import {ReactComponent as LINK} from '../assets/link.svg';
 
 export default class StudentCard extends Component {
   state = {
@@ -6,12 +8,11 @@ export default class StudentCard extends Component {
   }
   render() {
     return (
-      <div className='student-card'
+      <div className='student-card'>
+        <div className='student-portrait'
         onClick={() => {this.props.showStudentInfo(this.props.student.name)}}
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
-      >
-        <div className='student-portrait'
         >
           <div className='alt'
             style={{
@@ -23,8 +24,20 @@ export default class StudentCard extends Component {
             style={{ backgroundImage: `url(${this.props.student.portrait})` }}
           />
         </div>
-
-        <h1>{this.props.student.name}</h1>
+        <div className='student-card-info'>
+          <h1>{this.props.student.name}</h1>
+          {
+            window.innerWidth > 1023 &&
+            <div>
+              {this.props.student.portfolio && <a target="_blank" rel="noopener noreferrer" href={this.props.student.portfolio}>
+                <LINK/> 
+              </a>}
+              {this.props.student.linkedin && <a target="_blank" rel="noopener noreferrer" href={this.props.student.linkedin}>
+                <LINKEDIN/> 
+              </a>}
+          </div>
+          }
+        </div>
       </div>
     );
   }

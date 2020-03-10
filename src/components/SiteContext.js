@@ -134,6 +134,7 @@ export class SiteProvider extends Component {
     data.map(obj => {
       assets[obj.title] = `https:${obj.file.url}`
     })
+    console.log(assets)
     this.setState({
       assets
     })
@@ -148,14 +149,23 @@ export class SiteProvider extends Component {
       siteContent: content
     })
   }
+
+  getContent = name => {
+    return this.state.siteContent && this.state.siteContent[name] || ""
+  }
+
+  getAsset = name => {
+    return this.state.assets && this.state.assets[name] || ""
+  }
+
   render(){
     return(
       <SiteContext.Provider
         value={{
           students: this.state.students,
           projects: this.state.projects,
-          siteContent: this.state.siteContent,
-          assets: this.state.assets,
+          getAsset: this.getAsset,
+          getContent: this.getContent,
           showStudentInfo: this.showStudentInfo,
           closeStudentInfo: this.closeStudentInfo,
           showProjInfo: this.showProjInfo,

@@ -30,28 +30,24 @@ class Landing extends Component {
 
   render() {
     return (
-      this.props.siteContent ?
-          <div className='landing container'  onMouseMove = {this._handleMouseMove}>
-          <div className='landing-gradient' style={{background: this.state.gradient}}/>
-            <div className='scroll'>
-               <span>Scroll</span>
-               <div/>
-            </div>
-            <h1 style={{transform: `translateY(${this.state.movement}%)`}}>
-                {this.props.siteContent && this.props.siteContent.tagline}
-            </h1>
-          </div>
-        :
-        <div className='landing'/>
-
+      <div className='landing container'  onMouseMove = {this._handleMouseMove}>
+      <div className='landing-gradient' style={{background: this.state.gradient}}/>
+        <div className='scroll'>
+            <span>Scroll</span>
+            <div/>
+        </div>
+        <h1 style={{transform: `translateY(${this.state.movement}%)`}}>
+            {this.props.getContent('tagline')}
+        </h1>
+      </div>
     );
   }
 }
 
 export default () => (
   <SiteConsumer>
-    {({siteContent, browser}) => (
-      <Landing siteContent={siteContent} browser={browser}/>
+    {({getContent, browser}) => (
+      <Landing getContent={getContent} browser={browser}/>
     )}
   </SiteConsumer>
 )
