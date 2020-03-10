@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { SiteConsumer } from './SiteContext';
 import '../styles/project.scss';
 import { scrollTo } from '../utils/scroll';
 
 class Project extends Component {
+
+  constructor(props){
+    super(props);
+    this.videoRef = createRef();
+    this.modalRef = createRef();
+  }
+
   state = {
     project: {},
     hover: false,
@@ -20,10 +27,15 @@ class Project extends Component {
     if (this.props.browser.width <= 1023) {
       scrollTo(this.props.curPos, 0)
     }
-    this.props.closeProjInfo()
+    this.props.closeProjInfo();
+    this.videoRef.current.src = this.state.project.videoLink; //stops video
   }
 
   componentWillReceiveProps(nextProps) {
+    this.modalRef.current.scrollTop = 0;
+    this.setState({
+      loaded: false
+    })
     if (nextProps.curProj !== this.props.curProj && nextProps.curProj !== null) {
       let project = nextProps.projects.find(p => p.name == nextProps.curProj)
       if (project) {
@@ -47,6 +59,7 @@ class Project extends Component {
           pointerEvents: this.props.projInfo ? 'all' : 'none',
           opacity: this.props.projInfo ? 1 : 0
         }}
+        ref={this.modalRef}
       >
         <div className='container'>
           <span className='close-button' onClick={this._close}>&times;</span>
@@ -83,8 +96,6 @@ class Project extends Component {
             }
           </div>
           <div className='content'>
-            {
-              project.videoLink ?
               <div className="block-video">
                 {
                   !this.state.loaded &&
@@ -92,14 +103,9 @@ class Project extends Component {
                     <h3>loading video</h3>
                   </div>
                 }
-                <iframe src={project.videoLink} onLoad={this._onLoad}
+                <iframe ref={this.videoRef} src={project.videoLink} onLoad={this._onLoad}
                   frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={true} />
               </div>
-              :
-              <div className="video-ph">
-                <p>video coming soon</p>
-              </div>
-            }
             {
               project.images &&
               project.images.map((image, key) =>

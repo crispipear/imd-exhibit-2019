@@ -134,7 +134,6 @@ export class SiteProvider extends Component {
     data.map(obj => {
       assets[obj.title] = `https:${obj.file.url}`
     })
-    console.log(assets)
     this.setState({
       assets
     })

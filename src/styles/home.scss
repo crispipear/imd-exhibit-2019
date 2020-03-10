@@ -11,7 +11,7 @@
   border-radius: 50%;
   background: $key1;
   overflow: hidden;
-    animation: 0.5s ease-in 3.5s forwards fadeIn;
+  animation: 0.5s ease-in 0.25s forwards fadeIn;
   &:before{
     position: absolute;
     width: 100%;
@@ -51,7 +51,7 @@
     h1{
         transition: all 0.5s;
         opacity: 0;
-        animation: 0.75s ease-in 4s forwards fadeIn;
+        animation: 0.75s ease-in 0.75s forwards fadeIn;
         color: lighten($text, 12.5%);
         font-size: 7.25rem;
         line-height: 10rem;
@@ -81,7 +81,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      animation: 0.5s ease-in 4.5s forwards fadeIn;
+      animation: 0.5s ease-in 1.25s forwards fadeIn;
       div{
         width: 1px;
         height: 50px;
