@@ -33,6 +33,7 @@ export class SiteProvider extends Component {
   }
 
   state = {
+    imagesLoaded: false,
     students: [],
     projects: [],
     siteContent: {},
@@ -136,7 +137,7 @@ export class SiteProvider extends Component {
     })
     this.setState({
       assets
-    })
+    }, ()=>{this.loadImages()})
   }
 
   _processContent = data => {
@@ -157,12 +158,34 @@ export class SiteProvider extends Component {
     return this.state.assets && this.state.assets[name] || ""
   }
 
+  loadImages = () => {
+    this.imageLoadRecursion(Object.values(this.state.assets));
+  }
+  imageLoadRecursion = list => {
+    if(list.length == 0){
+      this.setState({
+        imagesLoaded: true
+      })
+    }else{
+      let newList = [];
+      for(let i = 0; i<list.length; i++){
+        let img = new Image();
+        img.onerror = function(){
+          newList.push(list[i])
+        }
+        img.src = list[i];
+      }
+      return this.imageLoadRecursion(newList);
+    }
+  }
+
   render(){
     return(
       <SiteContext.Provider
         value={{
           students: this.state.students,
           projects: this.state.projects,
+          imagesLoaded: this.state.imagesLoaded,
           getAsset: this.getAsset,
           getContent: this.getContent,
           showStudentInfo: this.showStudentInfo,

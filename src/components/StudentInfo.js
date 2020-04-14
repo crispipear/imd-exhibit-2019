@@ -67,9 +67,7 @@ class StudentInfo extends Component {
       >
         {
           this.props.browser.width <= 1023 &&
-          <div className='student-info'
-            style={{ right: this.props.studentInfo ? 0 : '-100%' }}
-          >
+          <div className='student-info'>
             <span className='close-button' onClick={this._close}>&times;</span>
             <AssetsMobile className="student-info-overlay" style={{ opacity: this.state.clicked ? 1 : 0, fill: this.state.student.favoriteColor }} />
             <div className='student-info-portrait' onClick={() => this.setState({ clickedPic: !this.state.clickedPic, clicked: false })}>
@@ -115,9 +113,7 @@ class StudentInfo extends Component {
         }
         {
           this.props.browser.width > 1023 &&
-          <div className='student-info'
-            style={{ right: this.props.studentInfo ? 0 : '-60%' }}
-          >
+          <div className='student-info'>
             <Assets className="student-info-overlay" style={{ opacity: this.state.hover ? 1 : 0, fill: this.state.student.favoriteColor }} />
             <div className='left'>
               <div className='student-info-portrait' onMouseEnter={this._handleHover}

@@ -66,34 +66,41 @@ class Project extends Component {
           <div className='header'>
             <div className='project-info'>
               <h1>{project.name}</h1>
+              <div className='project-info-content'>
+              <div>
+                  {
+                  project.featuredImage && <img src={project.featuredImage.fields.file.url}/>
+                  }
+                  {
+                  project.description &&
+                  project.description.split("//").map((paragraph, key) =>
+                    <p key={key}>{paragraph}</p>
+                  )
+                }
+                {
+                  project.websiteLink &&
+                  <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" >
+                    {project.websiteLink}
+                  </a>
+                } 
+              </div>
               <div className='project-members-container'>
+                <h4>Team Members</h4>
+                <div/>
                 {
                   project.members &&
                   project.members.map((member, key) =>
                     <div className='project-member' key={key}>
-                      <div className='project-member-pic' style={{backgroundImage: `url(${member.pic})`}} />
+                      <div>
+                        <div className='project-member-pic' style={{backgroundImage: `url(${member.pic})`}} />
+                      </div>
                       <h3>{member.name}</h3>
                     </div>
                   )
                 }
               </div>
-              {
-                project.description &&
-                project.description.split("//").map((paragraph, key) =>
-                  <p key={key}>{paragraph}</p>
-                )
-              }
-              {
-                project.websiteLink &&
-                <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" >
-                  {project.websiteLink}
-                </a>
-              }
+              </div>
             </div>
-            {
-              project.featuredImage &&
-              <div className='project-featured' style={{ backgroundImage: `url(https:${project.featuredImage.fields.file.url})` }} />
-            }
           </div>
           <div className='content'>
               <div className="block-video">

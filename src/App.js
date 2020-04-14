@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles/global.scss';
-import {SiteProvider} from './components/SiteContext';
+import {SiteProvider, SiteConsumer} from './components/SiteContext';
 import Students from './components/Students';
 import About from './components/About';
 import Landing from './components/Landing';
@@ -22,14 +22,19 @@ class App extends Component {
         loaded: true,
         position: 'unset'
       })
-    }, 3000)
+    }, 1000)
   }
-  componentDidMount(){
-    window.addEventListener('load', this.handleLoad);
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.imagesLoaded !== this.props.imagesLoaded){
+      if(this.props.imagesLoaded){
+        this.handleLoad();
+      }
+    }
   }
+
   render() {
     return (
-      <SiteProvider>
         <div className="app" style={{position: this.state.position}}>
           <LoadScreen loaded={this.state.loaded}/>
           <Project/>
@@ -41,9 +46,17 @@ class App extends Component {
           <Students/>
           <Footer/>
         </div>
-      </SiteProvider>
     );
   }
 }
 
-export default App;
+export default () => (
+  <SiteProvider>
+    <SiteConsumer>
+      {({imagesLoaded}) => (
+        <App imagesLoaded={imagesLoaded}/>
+      )}
+    </SiteConsumer>
+  </SiteProvider>
+
+)

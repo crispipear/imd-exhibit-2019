@@ -15,11 +15,12 @@
   position: fixed;
   background: rgba(0,0,0, 0.9);
   z-index: 50;
-  transition: all 0.25s ease-out;
+  transition: all 0.16s ease-out;
   .student-info{
     position: absolute;
     top: 0;
-    width: 50%;
+    right: 0;
+    width: 60%;
     height: 100vh;
     background-color: white;
     -webkit-box-shadow: -5px 0px 20px 0px rgba(0,0,0,0.1);
@@ -30,10 +31,10 @@
     flex-direction: row;
     justify-content: space-between;
     .left, .right{
-      width: 50%;
       box-sizing: border-box;
     }
     .left{
+      width: 45%;
       display: flex;
       flex-direction: column;
       padding: 7.5% 3.75% 0% 7.5%;
@@ -89,6 +90,7 @@
       }
     }
     .right{
+      width:55%;
       padding: 0% 7.5% 0% 3.75%;
       margin-top: 20%;
       ::-webkit-scrollbar { 
@@ -99,8 +101,8 @@
         margin: 0%;
       }
       p{
-        font-size: 0.95rem;
-        line-height: 1.75rem;
+        font-size: 0.96rem;
+        line-height: 1.6;
         margin: 3.5% 0%;
       }
       p.focus{
@@ -110,15 +112,14 @@
       }
     }
     @include laptop{
-      width: 60%;
+      width: 70%;
       .right{
         margin-top: 15%;
         h1{
           font-size: 1.5rem;
         }
         p{
-          font-size: 0.9rem;
-          line-height: 1.4rem;
+          font-size: 0.88rem;
         }
         a{
           font-size: 0.9rem;
